@@ -1,0 +1,257 @@
+
+html[dir="rtl"] body{
+    direction: rtl;
+    text-align: right;
+}
+html[dir="rtl"] .breadcrumbs .breadcrumbs-content .breadcrumb li a {
+    padding-right: 0px;
+    margin-right: 0px;
+    padding-left: 15px;
+    margin-left: 15px;
+}
+html[dir="rtl"] .breadcrumbs .breadcrumbs-content .breadcrumb li a:after {
+    right: auto;
+    left: 0;
+}
+html[dir="rtl"] .about-area .about-content p.quote {
+    border-right: 4px solid #2C3075;
+    padding-right: 15px;
+    padding-left: 0;
+    border-left: 0;
+}
+html[dir="rtl"] .icofont-long-arrow-right:before {
+    content: "\ea93";
+}
+html[dir="rtl"] .our-choose-area .accordion .card .card-header a i {
+    padding-right: 0px;
+    padding-left: 5px;
+}
+html[dir="rtl"] .footer .contact-details .social li {
+    margin-right: 0px;
+    margin-left: 5px;
+}
+html[dir="rtl"] #scrollUp {
+    left: 30px;
+    right: auto;
+}
+html[dir="rtl"] .footer .f-link ul li a::before {
+    left: auto;
+    right: 0;
+}
+html[dir="rtl"] .header .nav li {
+    margin-left: 40px;
+    margin-right: 0;
+    float: right;
+    position: relative;
+}
+html[dir="rtl"] .header .nav-inner {
+    float: left;
+    margin-right: 0px;
+}
+html[dir="rtl"] .icofont-long-arrow-left:before {
+    content: "\ea94";
+}
+html[dir="rtl"] .sidebar .widget .widget-title {
+    padding-left: 0px;
+    padding-right: 30px;
+}
+html[dir="rtl"] .sidebar .widget .widget-title:before {
+    right: 0;
+    left: auto;
+}
+html[dir="rtl"] .sidebar .widget.popular-feeds .single-popular-feed .feed-img {
+    margin-left: 15px;
+    margin-right: 0px;
+}
+html[dir="rtl"] .footer .footer-top .footer-pattern {
+    left: -90px;
+    right: auto;
+}
+html[dir="rtl"] .right-button {
+    float: left;
+    margin-top: 17px;
+}
+html[dir="rtl"] .header .logo {
+    float: right;
+}
+html[dir="rtl"] .post-details .post-meta li a {
+    display: flex;
+    align-items: center;
+}
+html[dir="rtl"] .post-details .post-meta li a i{
+   margin-left: 5px;
+}
+html[dir="rtl"] .post-details .post-meta li {
+    margin-left: 25px;
+    margin-right: 0px;
+}
+html[dir="rtl"] .post-details .list li {
+    padding-right: 18px;
+    padding-left: 0;
+}
+html[dir="rtl"] .post-details .list li::before {
+    right: 0;
+    left: auto;
+}
+html[dir="rtl"] .sidebar .widget.categories-widget ul li a span {
+    left: 0;
+    right: auto;
+}
+html[dir="rtl"] .sidebar .widget.categories-widget ul li a {
+    padding-left: 0px;
+    padding-right: 30px;
+}
+html[dir="rtl"] .detail-post-navigation .next-post i {
+    left: 0;
+    right: auto;
+}
+html[dir="rtl"] .detail-post-navigation .next-post {
+    padding-left: 65px;
+    padding-right: 0;
+}
+html[dir="rtl"] .related-post.owl-carousel .owl-controls .owl-nav .owl-prev {
+    left: 45px;
+    right: auto;
+}
+html[dir="rtl"] .related-post.owl-carousel .owl-controls .owl-nav .owl-next {
+    left: 0px;
+    right: auto;
+}
+
+/* html[dir="rtl"] .icofont-simple-right:before {
+    content: "\eab5";
+}
+
+html[dir="rtl"] .icofont-simple-left:before {
+    content: "\eab8";
+} */
+html[dir="rtl"] .post-author .author-image {
+    width: 180px;
+    margin-left: 30px;
+}
+
+html[dir="rtl"] .comment-title {
+    border-right: 4px solid #2C3075;
+    padding-right: 10px;
+    border-left: 0px solid #2C3075;
+    padding-left: 0px;
+}
+html[dir="rtl"] .post-comments .comments-list li .comment-desc .desc-top .reply-link {
+    left: 0;
+    right: auto;
+}
+html[dir="rtl"] .post-comments .comments-list li.children {
+    margin-right: 130px;
+    margin-left: 0;
+}
+
+html[dir="rtl"] .comment-reply-title {
+    border-right: 4px solid #2C3075;
+    padding-right: 10px;
+    border-left: 0px solid #2C3075;
+    padding-left: 0px;
+}
+
+html[dir="rtl"] .contact-address-icon i {
+    float: right;
+    margin-left: 30px;
+    margin-right: 0;
+}
+html[dir="rtl"] .contact-address-icon {
+    margin-left: 30px;
+    margin-right: 0;
+}
+
+html[dir="rtl"] .contact-area .inner-section-title {
+    text-align: right;
+}
+html[dir="rtl"] .our-choose-area .inner-section-title {
+    text-align: right;
+    margin-bottom: 40px;
+}
+html[dir="rtl"] .our-choose-area .inner-section-title h4 {
+    padding-right: 40px;
+    padding-left: 0px;
+}
+
+html[dir="rtl"] .our-choose-area .inner-section-title h4:before {
+    right: 0;
+    left: auto;
+}
+html[dir="rtl"] .testimonials-sec .owl-dots .owl-dot {
+    margin-left: 10px;
+    margin-right: 0;
+}
+html[dir="rtl"] .testimonials-sec .testimonial-box .deg span {
+    padding-right: 20px;
+    padding-left: 0;
+}
+html[dir="rtl"] .testimonials-sec .testimonial-box .deg span::before {
+    left: auto;
+    right: 0;
+}
+html[dir="rtl"] .pricing-table .single-table .duration {
+    left: -27px;
+    right: auto;
+}
+html[dir="rtl"] .pricing-table .single-table .curency {
+    right: -14px;
+    left: auto;
+}
+html[dir="rtl"] .pricing-table .single-table .popular {
+    left: -36px;
+    right: auto;
+    transform: rotate(-45deg);
+}
+html[dir="rtl"] .portfolio .single-portfolio .content {
+    right: 30px;
+    left: auto;
+}
+html[dir="rtl"] .portfolio .single-portfolio .small-title {
+    padding-right: 35px;
+    padding-left: 0px;
+}
+
+html[dir="rtl"] .portfolio .single-portfolio .small-title:before {
+    right: 0;
+    left: auto;
+}
+
+html[dir="rtl"] .project-details .project-head .details > li {
+    margin-right: 30px;
+    margin-left: 0;
+    border-right: 4px solid #525cf2;
+    border-left: 0;
+    padding-right: 10px;
+    padding-left: 0;
+}
+html[dir="rtl"] .project-details .project-head .details > li:first-child {
+    margin-right: 0;
+    margin-left: 0;
+}
+html[dir="rtl"] .project-details .project-head .button .btn i {
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+html[dir="rtl"] .sidebar.service-sidebar .service-docs>li>a>i {
+    margin-left: 20px;
+    margin-right: 0;
+}
+html[dir="rtl"] .sidebar.service-sidebar .service-quote .quote-author .quote-img {
+    margin-left: 20px;
+    margin-right: 0;
+}
+html[dir="rtl"] .slicknav_btn {
+    float: left;
+}
+
+html[dir="rtl"] .slicknav_nav .slicknav_arrow {
+    font-size: .8em;
+    margin: 0 0.4em 0 0.4em;
+}
+
+html[dir="rtl"] .services .single-service .content h4:before {
+    right: 0;
+    left: auto;
+}
