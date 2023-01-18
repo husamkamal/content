@@ -10,13 +10,14 @@ import { Pagination } from 'react-bootstrap';
 const Services = () => {
 	const [page, setPage] = useState(1)
 	const { isLoading, error, data } = useQuery('ServicesData', async ()  => {
-		const response = await axios.get('https://content-dev.com/content/public/api/v1/services/index')
+		const response = await axios.get('https://content-sa.com/api/v1/services/index')
 		return response.data
 	})
 	const handleClick= (e)=>{
 		setPage(e)
 	}
 	if(isLoading) return <Loading />
+	console.log(data)
 let items = [];
 for (let number = 1; number <= data.pagination.total_pages; number++) {
   items.push(

@@ -103,7 +103,6 @@ Version: 1.0
 	margin:0;
 }
 .header .nav li a {
-	font-weight: 900;
 	text-transform: capitalize;
 	position: relative;
 	display: block;
@@ -2952,7 +2951,10 @@ blockquote:before {
 	background:#2C3075;
 	padding:50px 0;
 }
-.footer .contact-details .single-info{}
+.footer .contact-details .single-info{
+	display: flex;
+	flex-direction: row-reverse !important;
+}
 .footer .contact-details .single-info p {
 	color: #fff;
 }

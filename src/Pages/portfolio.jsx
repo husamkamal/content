@@ -8,7 +8,7 @@ import Loading from '../Components/Global/Loading';
 
 const Portfolio = () => {
 	const { isLoading, error, data } = useQuery('PortfolioData', async ()  => {
-		const response = await axios.get('https://content-dev.com/content/public/api/v1/services/index')
+		const response = await axios.get('https://content-sa.com/api/v1/works/index')
 		return response.data
 	})
 	if(isLoading) return <Loading />

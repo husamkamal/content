@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Image from "../../Assets";
 
-const NavBar = () => {
+const NavBar = ({data}) => {
+  const logo = data[0].value
 	const [sticky , setSticky] = useState('static')
 	useEffect(() => {
 		window.addEventListener('scroll', stickNavbar);
@@ -26,11 +27,11 @@ const NavBar = () => {
             <div className="row">
               <div className="col-lg-2 col-md-2 col-12">
                 <div className="logo">
-                  <Link href="index.html">
-                    <img src={Image.logo} alt="logo" />
+                  <Link  to="/">
+                    <img src={logo} alt="logo" />
                   </Link>
                   <Link to="/" className="img2">
-                    <img src={Image.logo2} alt="logo" />
+                    <img src={logo} alt="logo" />
                   </Link>
                 </div>
                 <div className="mobile-nav"></div>

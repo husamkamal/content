@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Image from '../../Assets';
-import { FaFacebookF, FaLinkedin } from 'react-icons/fa';
-import { AiOutlineTwitter } from 'react-icons/ai';
-import { BsBehance } from 'react-icons/bs';
 
-
-const Footer = () => {
+const Footer = ({data}) => {
+	const email = data[6].value
+	const phon = data[7].value
+	const social = data[17].value
+	const logo = data[0].value
     return (
         <footer className="footer">
 		<div className="contact-details">
@@ -14,20 +14,22 @@ const Footer = () => {
 				<div className="row">
 					<div className="col-lg-4 col-md-4 col-12">
 						<div className="single-info">
-							<p><span>هل لديك أسئلة؟</span> <a href="mailto:username@domain.com">username@domain.com</a></p>
+							<p><span>هل لديك أسئلة؟</span> <a href="mailto:username@domain.com">{email}</a></p>
 						</div>
 					</div>
 					<div className="col-lg-4 col-md-4 col-12">
 						<div className="single-info">
-							<p><span>جاهز للتحدث إلينا؟</span> <Link href="#">+44(0) 1482 628850</Link></p>
+							<p><span>جاهز للتحدث إلينا؟</span> <Link href="#">{phon}</Link></p>
 						</div>
 					</div>
 					<div className="col-lg-4 col-md-4 col-12">
 						<ul className="social">
-							<li className="active"><Link href="#"><FaFacebookF /></Link></li>
-							<li><Link href="#"><AiOutlineTwitter /></Link></li>
-							<li><Link href="#"><BsBehance /></Link></li>
-							<li><Link href="#"><FaLinkedin/></Link></li>
+							{
+								social.map(e=>
+									<li key={e.id} className="active"><Link to="/">{e}</Link></li>
+									
+									)
+							}
 						</ul>
 					</div>
 				</div>
@@ -40,7 +42,7 @@ const Footer = () => {
 					<div className="col-lg-4 col-md-6 col-12">
 						<div className="single-footer f-about">
 							<div className="logo">
-								<Link href="index.html"><img src={Image.logo2} alt="#" /></Link>
+								<Link href="index.html"><img src={logo} alt="#" /></Link>
 							</div>
 							<p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>
 							<div className="copyright-content">
