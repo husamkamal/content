@@ -1,24 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BlogCard = ({title,subtitle,desc,link}) => {
+const BlogCard = ({src,title}) => {
     return (
-        <div className="col-lg-4 col-md-6 col-12">
-                    <div className="letest-news-item">
-                      <span>{title}</span>
-                      <h4 className="title">
-                        <Link to="/blog">
-                        {subtitle}</Link>
-                      </h4>
-                      <p>
-                      {desc}</p>
-                      <div className="button">
-                        <Link className="btn3" to={link}>
-                          قراءة المزيد
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+      <div
+      className="col-lg-4 col-md-6 col-12 wow fadeInUp"
+      data-wow-delay="0.8s"
+    >
+      <Link to={'/'}>
+      <div className="letest-news-item">
+        <div className="service-image">
+          <img src={src} alt="src" />
+        </div>
+        <h4 className="title">
+          <span >{title}</span>
+        </h4>
+        
+      </div>
+      </Link>
+    </div>
     );
 }
 

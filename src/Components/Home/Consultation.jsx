@@ -1,14 +1,16 @@
 import React from 'react';
 
-const Consultation = () => {
+const Consultation = ({data}) => {
+	const { section7_subtitle, section7_title } = data[10].value;
+
     return (
         <div className="contact-area section">
         <div className="container">
 			<div className="row">
 				<div className="col-lg-8 offset-lg-2 col-12 wow zoomIn" data-wow-delay="0.4s">
 					<div className="section-title">
-						<h4>اتصل بنا</h4>
-						<h2>احصل على استشارات مجانية</h2>
+						<h4>{section7_title}</h4>
+						<h2>{section7_subtitle}</h2>
 					</div>
 				</div>
 			</div>

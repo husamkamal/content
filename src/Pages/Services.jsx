@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Breadcrumbs from '../Components/Global/Breadcrumbs';
 import { Link } from 'react-router-dom';
+import ServicesCard from '../Components/Home/Services/ServicesCard';
+import { useQuery } from 'react-query';
+import axios from 'axios';
+import Loading from '../Components/Global/Loading';
+import { Pagination } from 'react-bootstrap';
 
 const Services = () => {
+	const [page, setPage] = useState(1)
+	const { isLoading, error, data } = useQuery('ServicesData', async ()  => {
+		const response = await axios.get('https://content-dev.com/content/public/api/v1/services/index')
+		return response.data
+	})
+	const handleClick= (e)=>{
+		setPage(e)
+	}
+	if(isLoading) return <Loading />
+let items = [];
+for (let number = 1; number <= data.pagination.total_pages; number++) {
+  items.push(
+    <Pagination.Item  onClick={()=>handleClick(number)} key={number} active={number === page}>
+      {number}
+    </Pagination.Item>,
+  );
+}	
     return (
         <div>
             <Breadcrumbs>
@@ -15,100 +37,23 @@ const Services = () => {
             <section className="services extra-page section">
 		<div className="container">
 			<div className="row">
-				<div className="col-lg-4 col-md-6 col-12">
-					<div className="single-service">
-						<div className="service-image">
-							<img src="https://via.placeholder.com/370x300" alt="#" />
-						</div>
-						<div className="content">
-							<h4><a href="#">تصميم غرافيك</a></h4>
-							<p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>	
-							<div className="button">
-								<Link href="#" className="btn">قراءة المزيد</Link>
-							</div>
-						</div>
-					</div>
+				{data.data.map(e=>
+				<ServicesCard
+			key={e.id}
+			src={e.image
+			}
+			title={e.name}
+			desc={e.about}
+			link={`/service-single/${e.id}`}
+			/>
+			)}
 				</div>
-				<div className="col-lg-4 col-md-6 col-12">
-					<div className="single-service">
-						<div className="service-image">
-							<img src="https://via.placeholder.com/370x300" alt="#" />
-						</div>
-						<div className="content">
-							<h4><a href="#">استشارات تكنولوجيا المعلومات</a></h4>
-							<p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>	
-							<div className="button">
-								<Link href="#" className="btn">قراءة المزيد</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="col-lg-4 col-md-6 col-12">
-					<div className="single-service">
-						<div className="service-image">
-							<img src="https://via.placeholder.com/370x300" alt="#" />
-						</div>
-						<div className="content">
-							<h4><a href="#">تكنولوجيا الأستاذ</a></h4>
-							<p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>	
-							<div className="button">
-								<Link href="#" className="btn">قراءة المزيد</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="col-lg-4 col-md-6 col-12">
-					<div className="single-service">
-						<div className="service-image">
-							<img src="https://via.placeholder.com/370x300" alt="#" />
-						</div>
-						<div className="content">
-							<h4><a href="#">تطوير الشبكة</a></h4>
-							<p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>	
-							<div className="button">
-								<Link href="#" className="btn">قراءة المزيد</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="col-lg-4 col-md-6 col-12">
-					<div className="single-service">
-						<div className="service-image">
-							<img src="https://via.placeholder.com/370x300" alt="#" />
-						</div>
-						<div className="content">
-							<h4><a href="#">تطوير التطبيقات</a></h4>
-							<p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>	
-							<div className="button">
-								<a href="#" className="btn">قراءة المزيد</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="col-lg-4 col-md-6 col-12">
-					<div className="single-service">
-						<div className="service-image">
-							<img src="https://via.placeholder.com/370x300" alt="#" />
-						</div>
-						<div className="content">
-							<h4><a href="#">تطوير اللعبة</a></h4>
-							<p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>	
-							<div className="button">
-								<Link href="#" className="btn">قراءة المزيد</Link>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 			<div className="row">
 				<div className="col-12">
 					<div className="pagination center justify-content-lg-center">
 						<ul className="pagination-list ">
 							<li><Link href="#"><i className="icofont-long-arrow-left"></i></Link></li>
-							<li className="active"><a href="#">1</a></li>
-							<li><Link href="#">2</Link></li>
-							<li><Link href="#">3</Link></li>
-							<li><Link href="#">4</Link></li>
+							<Pagination>{items}</Pagination>
 							<li><Link href="#"><i className="icofont-long-arrow-right"></i></Link></li>
 						</ul>
 					</div>

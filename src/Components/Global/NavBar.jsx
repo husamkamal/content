@@ -10,7 +10,7 @@ const NavBar = () => {
 		return () => {
 		  window.removeEventListener('scroll', stickNavbar);
 		};
-	  }, [window.scrollY]);
+	  }, []);
 	
 	  const stickNavbar = () => {
 		if (window !== undefined) {
@@ -29,7 +29,7 @@ const NavBar = () => {
                   <Link href="index.html">
                     <img src={Image.logo} alt="logo" />
                   </Link>
-                  <Link href="index.html" className="img2">
+                  <Link to="/" className="img2">
                     <img src={Image.logo2} alt="logo" />
                   </Link>
                 </div>
@@ -44,20 +44,17 @@ const NavBar = () => {
                           <li className="active">
                             <Link to="/">الرئيسية</Link>
                           </li>
+                          <li className="active">
+                            <Link to="/about">عن الشركة </Link>
+                          </li>
+                          <li>
+                            <Link to="/portfolio">معرض الأعمال</Link>
+                          </li>
                           <li>
                             <Link to="/services">الخدمات</Link>
                           </li>
                           <li>
-                            <Link to="/portfolio">معرض الاعمال</Link>
-                          </li>
-                          <li>
-                            <Link to="/blog">المدونات</Link>
-                          </li>
-                          <li>
-                            <Link to="/about">الصفحات</Link>
-                          </li>
-                          <li>
-                            <Link href="contact.html">اتصل بنا</Link>
+                            <Link to="/blog">المدونة</Link>
                           </li>
                         </ul>
                       </div>

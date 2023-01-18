@@ -1,55 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ServicesCard from './ServicesCard';
+import Image from '../../../Assets';
 
-const Services = () => {
+const Services = ({data}) => {
+	const {section3_subtitle,section3_title	} = data[10].value
+	const {value} = data[11]
+	console.log(value, 'dsfsdf')
     return (
-        <section className="services section">
+        <section  className="services section">
 		<div className="container">
 			<div className="row">
 				<div className="col-lg-8 offset-lg-2 col-12 wow zoomIn" data-wow-delay="0.4s">
 					<div className="section-title">
-						<h4>الذي نفعله</h4>
-						<h2>أفضل خدماتنا</h2>
+						<h4>{section3_title}</h4>
+						<h2>{section3_subtitle}</h2>
 					</div>
 				</div>
 			</div>
 			<div className="row">
+				{value.map(e=>
+
 			<ServicesCard
-			src={"https://via.placeholder.com/370x300"}
-			title={'استشارات تكنولوجيا المعلومات'}
-			desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'}
-			link={'/'}
+			key={e.id}
+			src={e.image
+			}
+			title={e.name}
+			desc={e.about}
+			link={`/service-single/${e.id}`}
 			/>
-				<ServicesCard
-			src={"https://via.placeholder.com/370x300"}
-			title={'استشارات تكنولوجيا المعلومات'}
-			desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'}
-			link={'/'}
-			/>
-			<ServicesCard
-			src={"https://via.placeholder.com/370x300"}
-			title={'استشارات تكنولوجيا المعلومات'}
-			desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'}
-			link={'/'}
-			/>	<ServicesCard
-			src={"https://via.placeholder.com/370x300"}
-			title={'استشارات تكنولوجيا المعلومات'}
-			desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'}
-			link={'/'}
-			/>
-			<ServicesCard
-			src={"https://via.placeholder.com/370x300"}
-			title={'استشارات تكنولوجيا المعلومات'}
-			desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'}
-			link={'/'}
-			/>
-			<ServicesCard
-			src={"https://via.placeholder.com/370x300"}
-			title={'استشارات تكنولوجيا المعلومات'}
-			desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى.'}
-			link={'/'}
-			/>
+				)}
+				
 			</div>
 		</div>
 	</section>

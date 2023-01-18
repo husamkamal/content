@@ -2,8 +2,16 @@ import React from 'react';
 import Breadcrumbs from '../Components/Global/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import PortfolioSlider from '../Components/Home/Portfolio/PortfolioSlider';
+import axios from 'axios';
+import { useQuery } from 'react-query';
+import Loading from '../Components/Global/Loading';
 
 const Portfolio = () => {
+	const { isLoading, error, data } = useQuery('PortfolioData', async ()  => {
+		const response = await axios.get('https://content-dev.com/content/public/api/v1/services/index')
+		return response.data
+	})
+	if(isLoading) return <Loading />
     return (
         <div>
             <Breadcrumbs>
@@ -16,18 +24,14 @@ const Portfolio = () => {
             <section id="portfolio" className="portfolio section">
 		<div className="container">
 			<div className="row">
-				<div className="col-lg-6 col-12">
-				<PortfolioSlider />
+				{
+					data.data.map(e=>
+				<div key={e.id} className="col-lg-6 col-12">
+				<PortfolioSlider src={e.image} />
 				</div>
-				<div className="col-lg-6 col-12">
-				<PortfolioSlider />
-				</div>
-				<div className="col-lg-6 col-12">
-				<PortfolioSlider />
-				</div>
-				<div className="col-lg-6 col-12">
-				<PortfolioSlider />
-				</div>
+
+					)
+				}
 			</div>
 			<div className="row">
 				<div className="col-12">

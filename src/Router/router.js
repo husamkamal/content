@@ -37,7 +37,7 @@ import NotFound from "../Pages/NotFound";
           element:<Services/>
         },
         {
-          path: '/service-single',
+          path: '/service-single/:id',
           element:<ServiceSingle/>
         },
         {
@@ -54,10 +54,7 @@ import NotFound from "../Pages/NotFound";
           element:<Mail/>
         }
         ,
-        {
-          path: '/mail',
-          element:<Mail/>
-        },
+        
         {
           path: '/blog',
           element:<BlogGrid/>

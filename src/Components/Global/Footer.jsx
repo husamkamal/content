@@ -1,5 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Image from '../../Assets';
+import { FaFacebookF, FaLinkedin } from 'react-icons/fa';
+import { AiOutlineTwitter } from 'react-icons/ai';
+import { BsBehance } from 'react-icons/bs';
+
 
 const Footer = () => {
     return (
@@ -19,10 +24,10 @@ const Footer = () => {
 					</div>
 					<div className="col-lg-4 col-md-4 col-12">
 						<ul className="social">
-							<li className="active"><Link href="#"><i className="icofont-facebook"></i></Link></li>
-							<li><Link href="#"><i className="icofont-twitter"></i></Link></li>
-							<li><Link href="#"><i className="icofont-behance"></i></Link></li>
-							<li><Link href="#"><i className="icofont-linkedin"></i></Link></li>
+							<li className="active"><Link href="#"><FaFacebookF /></Link></li>
+							<li><Link href="#"><AiOutlineTwitter /></Link></li>
+							<li><Link href="#"><BsBehance /></Link></li>
+							<li><Link href="#"><FaLinkedin/></Link></li>
 						</ul>
 					</div>
 				</div>

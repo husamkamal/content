@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Cairo:wght@200;300;500;600;700;800;900&display=swap');
 /* =====================================
 Template Name: Bizhub
 Author Name: Naimur Rahman
@@ -37,14 +38,19 @@ Version: 1.0
 17. Mail Success CSS
 18. Footer CSS
 ========================================*/
-
+ body{
+}
 /*======================================
-	01. Header CSS
+01. Header CSS
 ========================================*/
 /* Logo */
 *{
 	direction: rtl;
 	text-decoration: none !important;
+	font-family: 'Cairo', sans-serif;
+}
+.swiper-wrapper{
+	justify-content: center;
 }
 .header .logo {
 	float: left;
@@ -72,11 +78,13 @@ Version: 1.0
 .header{
 	position:relative;
 	background: #fff;
+	
 }
 .header .header-inner{
 	position:absolute;
 	width:100%;
 	z-index:99;
+	
 }
 .header .nav-inner {
 	float: right;
@@ -95,7 +103,7 @@ Version: 1.0
 	margin:0;
 }
 .header .nav li a {
-	font-weight: 500;
+	font-weight: 900;
 	text-transform: capitalize;
 	position: relative;
 	display: block;
@@ -104,6 +112,7 @@ Version: 1.0
 	z-index: 4;
 	font-size: 15px;
 	position:relative;
+	font-family: 'Cairo', sans-serif;
 }
 .header .nav li.active a:before{
 	opacity:1;
@@ -187,7 +196,7 @@ Version: 1.0
     left: 186px;
     top: 0;
     z-index: 999;
-   -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
 	box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 	box-shadow: 0px 3px 5px #3333334d;
@@ -249,7 +258,7 @@ Version: 1.0
 	top: 0;
 	left: 0;
 	width: 100%;
-	background: #fff;
+	background: linear-gradient(to right , #2C3075, #00907c ) !important;
 	z-index:10000;
 }
 .header.other-page .logo .img2{
@@ -265,13 +274,13 @@ Version: 1.0
 	top: 42px;
 }
 .header.other-page .nav li a {
-	color:#181E4E;
+	color:#fff;
 }
 .header.other-page .nav li:hover a {
-	color:#2C3075;
+	color:#000;
 }
 .header.other-page .nav li.active a {
-	color:#2C3075;
+	color:#fff;
 }
 .header.other-page .nav li .dropdown li a {
 	color: #181E4E;
@@ -670,16 +679,18 @@ Version: 1.0
 	04. Watch Video CSS
 ========================================*/  
 .watch-video{
-	background-image:url('https://via.placeholder.com/1200x800');
+	/* background-image:url('https://via.placeholder.com/1200x800'); */
 	background-size:cover;
 	background-position:center;
 	position:relative;
 	overflow:hidden;
 	padding:100px 0 300px 0;
+	z-index: -1;
+	background: #181E4E;
 }
 .watch-video.overlay::before {
 	background: #181E4E;
-	opacity: 0.7;
+	opacity: 0.1;
 }
 .watch-video .watch-inner {
 	display: inline-block;
@@ -720,7 +731,7 @@ Version: 1.0
   line-height: 80px;
   border-radius: 50%;
   position: relative;
-  z-index: 5; }
+   z-index: 5; } 
 .watch-video .video-head .video:before {
     position: absolute;
     content: '';
@@ -752,6 +763,7 @@ Version: 1.0
 .watch-video .content {
 	padding: 40px;
 	border: 10px solid #ffffff3b;
+	z-index: 100;
 }
 .watch-video .content h2 {
 	color: #fff;
@@ -807,7 +819,7 @@ Version: 1.0
 	height: 385px;
 	width: 1300px;
 	margin-left: -650px;
-	background-image:url('images/service-bg.jpg');
+
 	background-size:cover;
 	background-position:center;
 	background-repeat:no-repeat;
@@ -832,7 +844,7 @@ Version: 1.0
 	margin-bottom:30px;
 }
 .services .single-service img{
-	height:100%;
+	height:20rem;
 	width:100%;
 	z-index:2;
 }
@@ -843,6 +855,7 @@ Version: 1.0
 	-moz-transition:all 0.4s ease;
 	transition:all 0.4s ease;
 	margin-top:30px;
+	min-height: 20rem;
 }
 .services .single-service .content h4{
 	display:block;
@@ -850,6 +863,7 @@ Version: 1.0
 	padding-bottom:15px;
 	color:#181E4E;
 	position:relative;
+	min-height: 4.5rem;
 }
 .services .single-service .content h4:before{
 	position:absolute;
@@ -886,19 +900,20 @@ Version: 1.0
 .services .single-service .content p {
 	color: #666;
 	transition:all 0.4s ease;
+	min-height: 4.5rem;
 }
 .services .single-service .content .button{
 	margin-top:30px;
 }
 .services .single-service .content .button .btn{
 	border:2px solid #2C3075;
-	color:#2C3075;
-	background:transparent;
+	color: #fff;
+	background: #2C3075;
 }
 .services .single-service .content .button .btn:hover{
 	border-color:transparent;
 	color:#fff;
-	background:#2C3075;
+	background: #00907c;
 }
 /* Service Details */
 .service-details .detail-post-navigation {
@@ -913,7 +928,7 @@ Version: 1.0
 	margin:0;
 }
 .service-details .quote-icon+p{
-    position: relative;
+	position: relative;
     top: -6px;
 }
 .quote-icon {
@@ -940,6 +955,8 @@ Version: 1.0
 	-webkit-transition:all 0.4s ease;
 	-moz-transition:all 0.4s ease;
 	transition:all 0.4s ease;
+	width: 70rem;
+	height: 30rem;
 }
 .service-single-img:hover img{
 	transform:scale(1.1);
@@ -951,14 +968,14 @@ Version: 1.0
 	margin-bottom:10px;
 }
 .sidebar.service-sidebar .service-category>li{
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 .sidebar.service-sidebar .service-docs>li:last-child,
 .sidebar.service-sidebar .service-category>li:last-child{
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 .sidebar.service-sidebar .service-category>li>a{
-    display: flex;
+	display: flex;
     background: #f7f7f7;
     align-items: center;
     justify-content: space-between;
@@ -975,13 +992,13 @@ Version: 1.0
     color: #fff;
 }
 .sidebar.service-sidebar .service-category>li>a:hover>i{
-    opacity: 1;
+	opacity: 1;
 }
 .sidebar.service-sidebar .service-docs{
 	margin-bottom:30px;
 }
 .sidebar.service-sidebar .service-docs>li>a{
-    display: flex;
+	display: flex;
     background: transparent;
     align-items: center;
     padding: 16px 35px;
@@ -1003,18 +1020,18 @@ Version: 1.0
     padding-right: 15px;
 }
 .sidebar.service-sidebar .service-quote .quote-author{
-    display: flex;
+	display: flex;
     align-items: center;
 	margin-top:20px;
 }
 .sidebar.service-sidebar .service-quote .quote-author .quote-img{
-    width: 60px;
+	width: 60px;
     height: 60px;
     margin-right: 20px;
 	
 }
 .sidebar.service-sidebar .service-quote .quote-author .quote-text{
-    width: calc(100% - 80px);
+	width: calc(100% - 80px);
 }
 .sidebar.service-sidebar .service-quote .quote-author .quote-text h5{
     font-weight:600;
@@ -1024,11 +1041,11 @@ Version: 1.0
 	margin-top:30px;
 }
 /*======================================
-	End Services CSS
+End Services CSS
 ========================================*/ 
 
 /*======================================
-   06. Portfolio CSS
+06. Portfolio CSS
 ========================================*/ 
 .portfolio {
 	background-color: #F0F4F9;
@@ -1036,10 +1053,15 @@ Version: 1.0
 .portfolio .single-portfolio{
 	position:relative;
 	margin-top:30px;
+	width: 45%;
+	/* height: 100%; */
 }
 .portfolio .single-portfolio img{
-	height:100%;
-	width:100%;
+	max-width:40rem;
+	width: 35rem;
+	max-height: 40rem;
+	height: 30rem;
+	background-color: red;
 }
 .portfolio .single-portfolio .content {
 	display: block;
@@ -3104,12 +3126,12 @@ blockquote:before {
 }
 .footer .newsletter-inner .btnn{
 	height:65px;
-	width:200px;
+	width:100%;
 	display:block;
 	color:#fff;
-	background:#181E4E;
+	border-radius: 15px;
+	background: linear-gradient(to right , #2C3075, #00907c ) !important;
 	border:none;
-	border-radius:0;
 	padding:0 14px;
 	text-align:center;
 	margin-top:10px;
@@ -3121,7 +3143,7 @@ blockquote:before {
 	text-align:center;
 }
 .footer .newsletter-inner .btnn:hover{
-	background:#2C3075;
+	background: #00907c;
 	color:#fff;
 }
 /*======================================

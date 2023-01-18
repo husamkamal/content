@@ -1,9 +1,9 @@
 import React from 'react';
 
-const PortfolioSlider = () => {
+const PortfolioSlider = ({src}) => {
     return (
         <div className="single-portfolio">
-							<img src="https://via.placeholder.com/660x500" alt="#" />
+							<img src={src} alt="#" />
 						</div>
     );
 }

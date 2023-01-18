@@ -1,71 +1,92 @@
-import React from 'react';
-import CollapseSection from './Collapse';
+import React from "react";
+import CollapseSection from "./Collapse";
 
-const WhyChoose = () => {
-    return (
-        <div className="our-choose-area">
-        <div className="container">
-            <div className="row">
-                <div className="col-lg-6 col-12">
-					<div className="choose-left">
-						<div style={{textAlign:'right'}} className="inner-section-title">
-							<h4>أفضل وكالة لك</h4>
-							<h2 className="title">لماذا تختار حلولنا</h2>
-						</div>
-						<div className="accordion" id="accordionExample">
-						<CollapseSection
-							title={'نظام هندسة الإدارة'}
-							desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.'}
-							/> 
-							<CollapseSection
-							title={'نظام هندسة الإدارة'}
-							desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.'}
-							/> 
-							<CollapseSection
-							title={'نظام هندسة الإدارة'}
-							desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.'}
-							/>
-							<CollapseSection
-							title={'نظام هندسة الإدارة'}
-							desc={'هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.'}
-							/>
-						</div>
-					</div>
-                </div>
-                <div className="col-lg-6 col-12">
-                    <div className="our-choose-counter-area">
-                        <div className="row">
-                            <div className="col-md-6 col-sm-6">
-                                <div className="our-choose-counter">
-                                    <sub><span className="number">569</span> <sup>+</sup></sub>
-                                    <span className="title">مشروع مكتمل</span>
-                                    <p>ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً</p>
-                                </div>
-                                <div className="our-choose-counter mt-top">
-                                    <sub><span className="number">783</span> <sup>+</sup></sub>
-                                    <span className="title">شركاء العمل</span>
-                                    <p>ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً</p>
-                                </div>
-                            </div>
-                            <div className="col-md-6 col-sm-6">
-                                <div className="our-choose-counter small-mt-top">
-                                    <sub><span className="number">356</span> <sup>+</sup></sub>
-                                    <span className="title">عملاء سعداء</span>
-                                    <p>ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً</p>
-                                </div>
-                                <div className="our-choose-counter mt-top">
-                                    <sub><span className="number">894</span> <sup>+</sup></sub>
-                                    <span className="title">IT Consultant</span>
-                                    <p>ومن هنا وجب على المصمم أن يضع نصوصا مؤقتة على التصميم ليظهر للعميل الشكل كاملاً</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+const WhyChoose = ({ data }) => {
+  const {
+    section8_subtitle,
+    section8_title,
+    section8_state1,
+    section8_state2,
+    section8_state3,
+    section8_state4,
+    section8_state_subtitle1,
+    section8_state_subtitle2,
+    section8_state_subtitle3,
+    section8_state_subtitle4,
+    section8_state_title1,
+    section8_state_title2,
+    section8_state_title3,
+    section8_state_title4,
+  } = data[10].value;
+  const {value} = data[16]
+  return (
+    <div className="our-choose-area">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-6 col-12">
+            <div className="choose-left">
+              <div
+                style={{ textAlign: "right" }}
+                className="inner-section-title"
+              >
+                <h4>{section8_title}</h4>
+                <h2 className="title">{section8_subtitle}</h2>
+              </div>
+              <div className="accordion" id="accordionExample">
+                {value.map(e=>
+                <CollapseSection
+                key={e.id}
+                  title={e.name}
+                  desc={e.description}
+                />
+                    
+                    )}
+                
+              </div>
             </div>
+          </div>
+          <div className="col-lg-6 col-12">
+            <div className="our-choose-counter-area">
+              <div className="row">
+                <div className="col-md-6 col-sm-6">
+                  <div className="our-choose-counter">
+                    <sub>
+                      <span className="number">{section8_state1}</span> <sup>+</sup>
+                    </sub>
+                    <span className="title">{section8_state_title1}</span>
+                    <p>{section8_state_subtitle1}</p>
+                  </div>
+                  <div className="our-choose-counter mt-top">
+                  <sub>
+                      <span className="number">{section8_state2}</span> <sup>+</sup>
+                    </sub>
+                    <span className="title">{section8_state_title2}</span>
+                    <p>{section8_state_subtitle2}</p>
+                  </div>
+                </div>
+                <div className="col-md-6 col-sm-6">
+                  <div className="our-choose-counter small-mt-top">
+                  <sub>
+                      <span className="number">{section8_state3}</span> <sup>+</sup>
+                    </sub>
+                    <span className="title">{section8_state_title3}</span>
+                    <p>{section8_state_subtitle3}</p>
+                  </div>
+                  <div className="our-choose-counter mt-top">
+                  <sub>
+                      <span className="number">{section8_state4}</span> <sup>+</sup>
+                    </sub>
+                    <span className="title">{section8_state_title4}</span>
+                    <p>{section8_state_subtitle4}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    );
-}
+  );
+};
 
 export default WhyChoose;
