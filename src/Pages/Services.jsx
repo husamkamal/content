@@ -9,8 +9,8 @@ import { Pagination } from 'react-bootstrap';
 
 const Services = () => {
 	const [page, setPage] = useState(1)
-	const { isLoading, error, data } = useQuery('ServicesData', async ()  => {
-		const response = await axios.get('https://content-sa.com/api/v1/services/index')
+	const { isLoading,  data } = useQuery('ServicesData', async ()  => {
+		const response = await axios.get('https://content-sa.com/api/v1/services/index?page=1')
 		return response.data
 	})
 	const handleClick= (e)=>{
@@ -41,11 +41,10 @@ for (let number = 1; number <= data.pagination.total_pages; number++) {
 				{data.data.map(e=>
 				<ServicesCard
 			key={e.id}
-			src={e.image
-			}
+			src={e.image}
 			title={e.name}
 			desc={e.about}
-			link={`/service-single/${e.id}`}
+			link={`/service-single/${e.name}/${e.id}`}
 			/>
 			)}
 				</div>

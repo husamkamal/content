@@ -26,7 +26,7 @@ const BlogGridSection = () => {
                 key={e.id}
                 title={e.name}
                 src={e.image}
-                link={'/'}
+                link={`/blog-single/${e.name}/${e.id}`}
                 />
                     )}
                   

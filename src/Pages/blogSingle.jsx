@@ -8,8 +8,8 @@ const BlogSingle = () => {
     <div>
       <Breadcrumbs>
         {" "}
-        <h1 class="page-title">تفاصيل الأخبار</h1>
-        <ul class="custom-flex breadcrumb">
+        <h1 className="page-title">تفاصيل الأخبار</h1>
+        <ul className="custom-flex breadcrumb">
           <li>
             <a href="index.html">الرئيسية</a>
           </li>

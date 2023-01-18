@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Image from '../../Assets';
+import axios from 'axios';
 
 const Footer = ({data}) => {
+	const [userEmail,setUserEmail] = useState()
 	const email = data[6].value
 	const phon = data[7].value
 	const social = data[17].value
 	const logo = data[0].value
+	const description = data[1].value
+	const services = data[11].value
+	const emailHandler = (e) =>{
+		setUserEmail(e.target.value)
+	}
+	const onSubmit = (e) =>{
+		e.preventDefault()
+	axios.post('https://content-sa.com/api/v1//subscribe/store',{email:userEmail})
+	setUserEmail('')
+	}
+	console.log(userEmail)
     return (
         <footer className="footer">
 		<div className="contact-details">
@@ -14,7 +27,7 @@ const Footer = ({data}) => {
 				<div className="row">
 					<div className="col-lg-4 col-md-4 col-12">
 						<div className="single-info">
-							<p><span>هل لديك أسئلة؟</span> <a href="mailto:username@domain.com">{email}</a></p>
+							<p><span>هل لديك أسئلة؟</span> <a className='text-white' href="mailto:username@domain.com">{email}</a></p>
 						</div>
 					</div>
 					<div className="col-lg-4 col-md-4 col-12">
@@ -44,23 +57,20 @@ const Footer = ({data}) => {
 							<div className="logo">
 								<Link href="index.html"><img src={logo} alt="#" /></Link>
 							</div>
-							<p>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى</p>
-							<div className="copyright-content">
-								<Link href="#">الشروط والاحكام</Link>
-								<p>جميع الحقوق محفوظة</p>
-							</div>
+							<p>{description}</p>
+							
 						</div>
 					</div>
 					<div className="col-lg-2 col-md-6 col-12">
 						<div className="single-footer f-link">
 							<h3>الذي نفعله</h3>
 							<ul>
-								<li><Link href="#">الشعار التجارية</Link></li>
-								<li><Link href="#">تصميم الرسومات</Link></li>
-								<li><Link href="#">تصميم المواقع</Link></li>
-								<li><Link href="#">التسويق عبر الإنترنت</Link></li>
-								<li><Link href="#">تطوير التطبيقات</Link></li>
-								<li><Link href="#">الرسوم المتحركة بالفيديو</Link></li>
+								{
+									services.map(e=>
+										
+										<li key={e.id}><Link href="#">{e.name}</Link></li>
+										)
+								}
 							</ul>
 						</div>
 					</div>
@@ -68,24 +78,23 @@ const Footer = ({data}) => {
 						<div className="single-footer f-link">
 							<h3>روابط سريعة</h3>
 							<ul>
-								<li><a href="#">من نحن</a></li>
-								<li><a href="#">الخدمات</a></li>
-								<li><a href="#">الاسعار</a></li>
-								<li><a href="#">المميزات</a></li>
-								<li><a href="#">الاسئلة الشائعة</a></li>
-								<li><a href="#">اتصل بنا</a></li>
+								<li><Link to="/">الرئيسية</Link></li>
+								<li><Link to="/about">عن الشركة</Link></li>
+								<li><Link to="/portfolio">معرض الأعمال</Link></li>
+								<li><Link to="/services">الخدمات</Link></li>
+								<li><Link to="/blog">المدونة</Link></li>
 							</ul>
 						</div>
 					</div>
 					<div className="col-lg-4 col-md-6 col-12">
 						<div className="single-footer footer-newsletter">
-							<h3>اشترك في النشرة الإخبارية</h3>
+							<h3>اشترك في النشرة البريدية</h3>
 							<div className="newsletter-content">
 								<p className="text">اشترك لمواكبة آخر الأخبار والتحديثات.</p>
 								<div className="news-letter-form">
-									<form action="mail/mail.php" method="get" target="_blank" className="newsletter-inner">
-										<input name="email" placeholder="البريد الالكتروني" required="" type="email" />
-										<button className="btnn">إشترك الآن</button>
+									<form onSubmit={onSubmit}  className="newsletter-inner">
+										<input onChange={emailHandler} name="email" placeholder="البريد الالكتروني" required="" type="email" />
+										<button type='submit' onClick={onSubmit} className="btnn">إشترك الآن</button>
 									</form>
 								</div>
 							</div>

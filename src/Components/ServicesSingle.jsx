@@ -8,7 +8,7 @@ const ServicesSingle = () => {
     const {id} = useParams()
     console.log(id)
     const { isLoading, error, data } = useQuery('SingleServicesData', async ()  => {
-        const response = await axios.get(`https://content-dev.com/content/public/api/v1/services/${id}/show`)
+        const response = await axios.get(`https://content-sa.com/api/v1/services/${id}/show`)
         return response.data.data
     })
       if(isLoading) return <Loading />
@@ -23,7 +23,7 @@ const ServicesSingle = () => {
                         <div className="service-single-img">
                             <img src={`${data.image}`} alt="#" />
                         </div>
-                        <p>{data.description}</p>
+                        <p dangerouslySetInnerHTML={{ __html:  data.description }} style={{fontFamily:'cairo !important'}} />
                     </div>
                 </div>
                 

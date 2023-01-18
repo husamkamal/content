@@ -16,9 +16,9 @@ const Portfolio = ({data}) => {
   return (
     <section id="portfolio" className="portfolio section">
       <div className="container">
-        <div className="row">
+        <div className="row justify-content-center">
           <div
-            className="col-lg-8 offset-lg-2 col-12 wow zoomIn"
+            className="col-lg-5 offset-lg-0 col-12 wow zoomIn"
             data-wow-delay="0.4s"
           >
             <div className="section-title">
@@ -36,6 +36,7 @@ const Portfolio = ({data}) => {
                 spaceBetween={50}
                 slidesPerView={2}
                 navigation
+                loop={true}
               >
                 {value.map(e=>
 

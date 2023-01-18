@@ -818,7 +818,7 @@ Version: 1.0
 	height: 385px;
 	width: 1300px;
 	margin-left: -650px;
-
+	background-image: url('https://wpthemesgrid.com/themes/bizhub/images/service-bg.jpg');
 	background-size:cover;
 	background-position:center;
 	background-repeat:no-repeat;
@@ -1839,6 +1839,10 @@ End Services CSS
 	box-shadow: 0px 16px 32px 0px rgba(228, 228, 228, 0.56);
 	margin-top: 0;
 	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
 }
 .latest-news-area .letast-news-grid .letest-news-item span {
 	font-size: 14px;
@@ -1853,7 +1857,7 @@ End Services CSS
 	padding-bottom: 25px;
 	line-height:26px;
 }
-.latest-news-area .letast-news-grid .letest-news-item .title a {
+.latest-news-area .letast-news-grid .letest-news-item .title span {
 	color: #181E4E;
 	font-weight:700;
 	font-size:20px;
@@ -2935,6 +2939,9 @@ blockquote:before {
 	font-size: 16px;
 	padding: 0 30px;
 	margin-bottom:20px;
+}
+ .content-button{
+	background: linear-gradient(to right , #2C3075, #00907c ) !important;
 }
 /*======================================
    End Mail Success CSS

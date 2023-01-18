@@ -25,6 +25,7 @@ const Clients = ({ data }) => {
                 spaceBetween={50}
                 slidesPerView={6}
                 pagination
+				autoplay
                 style={{ display: "flex", justifyContent: "center" }}
               >
                 {value.map((e) => (

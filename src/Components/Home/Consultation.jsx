@@ -1,15 +1,46 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { BiCalendar } from "react-icons/bi";
 import { RxEnvelopeClosed } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
 const Consultation = ({ data }) => {
+	const navigate = useNavigate()
+  const [info,setInfo] = useState() 
+  const [success, setSuccess] = useState()
+  console.log(success)
   const { section7_subtitle, section7_title } = data[10].value;
-
+  const email = data[6].value;
+  const phon = data[7].value;
+  console.log(info,'info')
+  const emailHandler = (e) => {
+	setInfo(prev=>{
+		return {...info, email:e.target.value}
+	})
+  }
+  const nameHandler = (e) => {
+	setInfo(prev=>{
+		return {...info, name:e.target.value}
+	})
+  }
+  const messageHandler = (e) => {
+	setInfo(prev=>{
+		return {...info, description:e.target.value}
+	})
+  }
+  const submit = async (e) =>{
+	e.preventDefault()
+	const respo = await axios.post('https://content-sa.com/api/v1/home/store-contact-us',info,{headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
+	setSuccess(respo)
+}
+  if(success?.status === 200){
+	navigate('/success')
+  }
   return (
     <div className="contact-area section">
       <div className="container">
-        <div className="row">
+        <div className="row justify-content-center">
           <div
-            className="col-lg-8 offset-lg-2 col-12 wow zoomIn"
+            className="col-lg-5 offset-lg-0 col-12 wow zoomIn"
             data-wow-delay="0.4s"
           >
             <div className="section-title">
@@ -34,8 +65,7 @@ const Consultation = ({ data }) => {
                   </div>
                   <div className="contact-address-text">
                     <h3>الهاتف</h3>
-                    <span>هاتف المكتب : 0029129102320</span>
-                    <span>موبايل : 000 2324 39493</span>
+                    <span>{phon}</span>
                   </div>
                 </div>
                 <div className="single-info">
@@ -46,8 +76,7 @@ const Consultation = ({ data }) => {
                   </div>
                   <div className="contact-address-text">
                     <h3>البريد الالكتروني</h3>
-                    <span>البريد الإلكتروني الرئيسي : carly@website.com</span>
-                    <span>استفسارات : Info@carly.com</span>
+                    <span>{email} </span>
                   </div>
                 </div>
               </div>
@@ -59,8 +88,7 @@ const Consultation = ({ data }) => {
                 </div>
                 <form
                   className="contacts-form"
-                  method="post"
-                  action="mail/mail.php"
+				  onSubmit={submit}
                 >
                   <div className="row">
                     <div className="col-lg-6 col-12">
@@ -69,7 +97,8 @@ const Consultation = ({ data }) => {
                           type="text"
                           placeholder="الاسم"
                           required="required"
-                        />
+						  onChange={nameHandler}	
+						/>
                       </div>
                     </div>
                     <div className="col-lg-6 col-12">
@@ -78,6 +107,7 @@ const Consultation = ({ data }) => {
                           type="email"
                           placeholder="البريد الالكتروني"
                           required="required"
+						  onChange={emailHandler}
                         />
                       </div>
                     </div>
@@ -87,6 +117,7 @@ const Consultation = ({ data }) => {
                           name="message"
                           rows="7"
                           placeholder="الرسائل"
+						  onChange={messageHandler}
                         ></textarea>
                       </div>
                     </div>

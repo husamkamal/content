@@ -10,8 +10,8 @@ const Services = ({data}) => {
     return (
         <section  className="services section">
 		<div className="container">
-			<div className="row">
-				<div className="col-lg-8 offset-lg-2 col-12 wow zoomIn" data-wow-delay="0.4s">
+			<div className="row justify-content-center">
+				<div className="col-lg-5 offset-lg-0 col-12 wow zoomIn" data-wow-delay="0.4s">
 					<div className="section-title">
 						<h4>{section3_title}</h4>
 						<h2>{section3_subtitle}</h2>

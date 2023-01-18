@@ -23,8 +23,16 @@ const Home = () => {
     return response.data.data
 })
   if(isLoading) return <Loading />
-  console.log(data)
-  if(error) return 'there is error'
+  const getSettingsData = (key) => {
+      const result = data.find((data) => data?.key === key);
+      return result?.value;
+    };
+    const logo = getSettingsData('logo')
+    const services = getSettingsData('services')
+    const section1Image = getSettingsData("section1_image")
+    const section1BackgroundImage = getSettingsData('section1_background_image')
+    
+    if(error) return 'there is error'
     return (
         <div>
             <HeroSection data={data}  />

@@ -1,12 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Loading from "./Global/Loading";
+import axios from "axios";
+import { useQuery } from "react-query";
 
 const Blog = () => {
+  const {id} = useParams()
+    console.log(id)
+    const { isLoading, error, data } = useQuery('SingleBlogData', async ()  => {
+        const response = await axios.get(`https://content-sa.com/api/v1/blog/${id}/show`)
+        return response.data.data
+    })
+      if(isLoading) return <Loading />
+      console.log(data,'blog')
   return (
-    <section class="section blog-single">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 offset-lg-1 col-12">
+    <section className="section blog-single">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 offset-lg-1 col-12">
             <div className="post-details">
               <ul className="post-category">
                 <li>
@@ -14,9 +25,7 @@ const Blog = () => {
                 </li>
               </ul>
               <h2 className="post-title">
-                <Link href="#">
-                  هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم
-                  توليد هذا النص.
+                <Link href="#">{data.name}
                 </Link>
               </h2>
               <ul className="custom-flex post-meta">
@@ -28,14 +37,7 @@ const Blog = () => {
                 </li>
               </ul>
               <p>
-                هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد
-                هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو
-                العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها
-                التطبيق. إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص
-                العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسما ولا يحوي
-                أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه
-                الخصوص، حيث يحتاج العميل فى كثير من الأحيان أن يطلع على صورة
-                حقيقية لتصميم الموقع..
+                {data.description}
               </p>
               <p>
                 هذا النص يمكن أن يتم تركيبه على أي تصميم دون مشكلة فلن يبدو
@@ -44,7 +46,7 @@ const Blog = () => {
               </p>
               <div className="post-image animate-img">
                 <Link href="#">
-                  <img src="https://via.placeholder.com/1140x690" alt="#" />
+                  <img src={data.image} alt="#" />
                 </Link>
               </div>
               <h3>هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة</h3>

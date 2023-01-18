@@ -10,9 +10,9 @@ const LatestNews = ({data}) => {
   return (
     <div className="latest-news-area section">
       <div className="container">
-        <div className="row">
+        <div className="row justify-content-center">
           <div
-            className="col-lg-8 offset-lg-2 col-12 wow zoomIn"
+            className="col-lg-5 offset-lg-0 col-12 wow zoomIn"
             data-wow-delay="0.4s"
           >
             <div className="section-title">
