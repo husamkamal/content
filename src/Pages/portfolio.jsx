@@ -22,8 +22,8 @@ const Portfolio = () => {
             <Breadcrumbs>
             <h1 className="page-title">معرض الاعمال</h1>
                         <ul className="custom-flex breadcrumb">
+                            <li><Link to="/">الرئيسية</Link></li>
                             <li>معرض الاعمال</li>
-                            <li><a href="index.html">الرئيسية</a></li>
                         </ul>            
             </Breadcrumbs>
             <section id="portfolio" className="portfolio section">

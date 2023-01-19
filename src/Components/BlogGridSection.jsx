@@ -16,7 +16,6 @@ const handleChange = (event, value) => {
   setPage(value);
   };
   if(isLoading) return <Loading />
-  console.log(data)
   return (
     <div className="latest-news-area extra-page section">
       <div className="letast-news-grid">

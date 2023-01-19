@@ -14,12 +14,14 @@ const Footer = ({data}) => {
 	const emailHandler = (e) =>{
 		setUserEmail(e.target.value)
 	}
+	const socialMedia = social.filter(e=>{
+		return e.link !== '#'
+	})
 	const onSubmit = (e) =>{
 		e.preventDefault()
 	axios.post('https://content-sa.com/api/v1//subscribe/store',{email:userEmail})
 	setUserEmail('')
 	}
-	console.log(userEmail)
     return (
         <footer className="footer">
 		<div className="contact-details">
@@ -38,10 +40,8 @@ const Footer = ({data}) => {
 					<div className="col-lg-4 col-md-4 col-12">
 						<ul className="social">
 							{
-								social.map(e=>
-									<li key={e.id} className="active"><Link to="/">{e}</Link></li>
-									
-									)
+								socialMedia.map(e=>
+									<li key={e.key} className="active"><Link to={e.link}><i className='icofont-facebook'></i></Link></li>)
 							}
 						</ul>
 					</div>

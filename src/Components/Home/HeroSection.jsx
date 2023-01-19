@@ -1,8 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const HeroSection = ({ data }) => {
-	console.log(data)
   const { section1_title, section1_subtitle } = data[10].value;
   const src = data[8].value
   const bacground = data[9].value

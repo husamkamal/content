@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -11,10 +11,53 @@ import "swiper/css/scrollbar";
 import TestimonialsCard from "./TestimonialsCard";
 
 const Testimonials = ({ data }) => {
+  const testimonialRef = useRef(null);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const heroAnimation = gsap.context(() => {
+      gsap.fromTo(
+        '.section-title',
+        {
+          z: -800,
+          scale: 0.5,
+        },
+        {
+          z: 0,
+          scale: 1,
+          ease: 'power2',
+          duration: 1,
+          scrollTrigger: {
+            trigger: testimonialRef.current,
+            start: 'left center',
+            end: 'right center',
+          },
+        },
+      );
+      gsap.fromTo(
+        '.testimonial-slider',
+        {
+          x: 1200,
+        },
+        {
+          x: 0,
+          ease: 'power2',
+          delay: 0.5,
+          duration: 1,
+          scrollTrigger: {
+            trigger: testimonialRef.current,
+            start: 'top center',
+            end: 'bottom center',
+          },
+        },
+      );
+    }, testimonialRef);
+
+    return () => heroAnimation.revert();
+  }, []);
   const { section6_subtitle, section6_title } = data[10].value;
   const { value } = data[15];
   return (
-    <section className="testimonials-sec section">
+    <section className="testimonials-sec section" ref={testimonialRef}>
       <div className="container">
         <div className="row justify-content-center">
           <div

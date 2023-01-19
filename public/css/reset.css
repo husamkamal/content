@@ -228,8 +228,8 @@ th {
 	font-weight:500;
 }
 .breadcrumbs .breadcrumbs-content .breadcrumb li a{
-    padding-right: 15px;
-    margin-right: 15px;
+    padding-left: 15px;
+    margin-left: 15px;
     position: relative;
 }
 .breadcrumbs .breadcrumbs-content .breadcrumb li a:hover{
@@ -242,7 +242,7 @@ th {
     background-color: #fff;
     position: absolute;
     top: 4px;
-    right: 0;
+    left: 0;
 }
 /* Pagination CSS */
 .pagination {

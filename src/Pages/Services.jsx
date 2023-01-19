@@ -5,6 +5,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import Loading from '../Components/Global/Loading';
 import { Pagination } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
 	const [page, setPage] = useState(1)
@@ -16,14 +17,13 @@ const Services = () => {
 		setPage(value);
 	  };
 	if(isLoading) return <Loading />
-	console.log(data)
     return (
         <div>
             <Breadcrumbs>
             <h1 className="page-title">خدماتنا</h1>
                         <ul className="custom-flex breadcrumb">
+                            <li><Link to="/">الرئيسية</Link></li>
                             <li>خدماتنا</li>
-                            <li><a href="index.html">الرئيسية</a></li>
                         </ul>
             </Breadcrumbs>
             <section className="services extra-page section">

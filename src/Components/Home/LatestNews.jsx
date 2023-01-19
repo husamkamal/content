@@ -1,14 +1,58 @@
-import React from "react";
-import { Link } from "react-router-dom";
-// import LastNewsCard from "../LastNewsCard";
+import React, { useEffect, useRef } from "react";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 import BlogCard from "../BlogCard";
 
 const LatestNews = ({data}) => {
+  const lastRef = useRef(null);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const heroAnimation = gsap.context(() => {
+      gsap.fromTo(
+        '.section-title',
+        {
+          z: -800,
+          scale: 0.5,
+        },
+        {
+          z: 0,
+          scale: 1,
+          ease: 'power2',
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: lastRef.current,
+            start: 'left center',
+            end: 'right center',
+          },
+        },
+      );
+      gsap.fromTo(
+        '.latest-news .row div',
+        {
+          y: 1200,
+        },
+        {
+          y: 0,
+          ease: 'power2',
+          delay: 0.5,
+          duration: 1,
+          scrollTrigger: {
+            trigger: lastRef.current,
+            start: 'top center',
+            end: 'bottom center',
+          },
+        },
+      );
+      
+    }, lastRef);
+
+    return () => heroAnimation.revert();
+  }, []);
     const {value} = data[11]
     const { section9_subtitle, section9_title } = data[10].value;
 
   return (
-    <div className="latest-news-area section">
+    <div className="latest-news-area section" ref={lastRef}>
       <div className="container">
         <div className="row justify-content-center">
           <div

@@ -1,14 +1,55 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
 import ServicesCard from './ServicesCard';
-import Image from '../../../Assets';
-
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 const Services = ({data}) => {
+	const servicesRef = useRef(null);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const heroAnimation = gsap.context(() => {
+      gsap.fromTo(
+        '.section-title',
+        {
+          z: -800,
+          scale: 0.5,
+        },
+        {
+          z: 0,
+          scale: 1,
+          ease: 'power2',
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: servicesRef.current,
+            start: 'left center',
+            end: 'right center',
+          },
+        },
+      );
+      gsap.fromTo(
+        '.container .row  div',
+        {
+          y: 800,
+        },
+        {
+          y: 0,
+          ease: 'power2',
+          delay: 0.5,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: servicesRef.current,
+            start: 'top center',
+            end: 'bottom center',
+          },
+        },
+      );
+    }, servicesRef);
+
+    return () => heroAnimation.revert();
+  }, []);
 	const {section3_subtitle,section3_title	} = data[10].value
 	const {value} = data[11]
-	console.log(value, 'dsfsdf')
     return (
-        <section  className="services section">
+        <section  className="services section" ref={servicesRef}>
 		<div className="container">
 			<div className="row justify-content-center">
 				<div className="col-lg-5 offset-lg-0 col-12 wow zoomIn" data-wow-delay="0.4s">

@@ -1,5 +1,6 @@
 import React from "react";
 import CollapseSection from "./Collapse";
+import Number from "../NumberAnimation";
 
 const WhyChoose = ({ data }) => {
   const {
@@ -51,14 +52,15 @@ const WhyChoose = ({ data }) => {
                 <div className="col-md-6 col-sm-6">
                   <div className="our-choose-counter">
                     <sub>
-                      <span className="number">{section8_state1}</span> <sup>+</sup>
+                    <Number number={section8_state1} />
+                      <sup>+</sup>
                     </sub>
                     <span className="title">{section8_state_title1}</span>
                     <p>{section8_state_subtitle1}</p>
                   </div>
                   <div className="our-choose-counter mt-top">
                   <sub>
-                      <span className="number">{section8_state2}</span> <sup>+</sup>
+                  <Number number={section8_state2} /> <sup>+</sup>
                     </sub>
                     <span className="title">{section8_state_title2}</span>
                     <p>{section8_state_subtitle2}</p>
@@ -67,14 +69,14 @@ const WhyChoose = ({ data }) => {
                 <div className="col-md-6 col-sm-6">
                   <div className="our-choose-counter small-mt-top">
                   <sub>
-                      <span className="number">{section8_state3}</span> <sup>+</sup>
+                  <Number number={section8_state3} /> <sup>+</sup>
                     </sub>
                     <span className="title">{section8_state_title3}</span>
                     <p>{section8_state_subtitle3}</p>
                   </div>
                   <div className="our-choose-counter mt-top">
                   <sub>
-                      <span className="number">{section8_state4}</span> <sup>+</sup>
+                  <Number number={section8_state4} /> <sup>+</sup>
                     </sub>
                     <span className="title">{section8_state_title4}</span>
                     <p>{section8_state_subtitle4}</p>

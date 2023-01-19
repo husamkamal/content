@@ -11,10 +11,10 @@ const BlogSingle = () => {
         <h1 className="page-title">تفاصيل الأخبار</h1>
         <ul className="custom-flex breadcrumb">
           <li>
-            <a href="index.html">الرئيسية</a>
+            <Link to="/">الرئيسية</Link>
           </li>
           <li>
-            <a href="news-standard.html">الأخبار</a>
+            <Link to="/">الأخبار</Link>
           </li>
           <li>تفاصيل الأخبار</li>
         </ul>

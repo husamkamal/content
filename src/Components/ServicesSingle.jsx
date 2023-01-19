@@ -6,13 +6,11 @@ import { useQuery } from 'react-query';
 
 const ServicesSingle = () => {
     const {id} = useParams()
-    console.log(id)
     const { isLoading, error, data } = useQuery('SingleServicesData', async ()  => {
         const response = await axios.get(`https://content-sa.com/api/v1/services/${id}/show`)
         return response.data.data
     })
       if(isLoading) return <Loading />
-      console.log(data)
     return (
         <section className="section service-single">
         <div className="container">

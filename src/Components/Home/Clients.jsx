@@ -12,7 +12,6 @@ import "swiper/css/scrollbar";
 
 const Clients = ({ data }) => {
   const value = data[14].value;
-  console.log(value);
   return (
     <div id="clients" className="clients">
       <div className="container">

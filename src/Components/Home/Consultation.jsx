@@ -1,9 +1,39 @@
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import gsap from 'gsap';
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import { BiCalendar } from "react-icons/bi";
 import { RxEnvelopeClosed } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useRef } from 'react';
 const Consultation = ({ data }) => {
+  const consultationRef = useRef(null);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const heroAnimation = gsap.context(() => {
+      gsap.fromTo(
+        '.section-title',
+        {
+          z: -800,
+          scale: 0.5,
+        },
+        {
+          z: 0,
+          scale: 1,
+          ease: 'power2',
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: consultationRef.current,
+            start: 'left center',
+            end: 'right center',
+          },
+        },
+      );
+      
+    }, consultationRef);
+
+    return () => heroAnimation.revert();
+  }, []);
 	const navigate = useNavigate()
   const { section7_subtitle, section7_title } = data[10].value;
   const email = data[6].value;
@@ -19,7 +49,7 @@ const Consultation = ({ data }) => {
 
 }
   return (
-    <div className="contact-area section">
+    <div className="contact-area section" ref={consultationRef}>
       <div className="container">
         <div className="row justify-content-center">
           <div
