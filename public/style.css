@@ -1618,7 +1618,6 @@ End Services CSS
 .contacts-form input {
     border: 1px solid #181E4E1C;
     height: 50px;
-    margin-bottom: 30px;
     padding: 0 28px;
     width: 100%;
     font-size: 16px;
@@ -1630,7 +1629,7 @@ End Services CSS
 .contacts-form textarea {
     border: 1px solid #181E4E1C;
     height: 150px;
-    margin-bottom: 30px;
+    margin-top: 30px;
     padding: 28px;
     width: 100%;
     font-size: 16px;

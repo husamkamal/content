@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 const BlogCard = ({src,title, link}) => {
     return (
       <div
+      style={{marginTop:'1rem'}}
       className="col-lg-4 col-md-6 col-12 wow fadeInUp"
       data-wow-delay="0.8s"
     >

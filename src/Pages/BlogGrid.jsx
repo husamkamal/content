@@ -8,8 +8,8 @@ const BlogGrid = () => {
             <Breadcrumbs>
             <h1 className="page-title">المدونة</h1>
                         <ul className="custom-flex breadcrumb">
-                            <li><a href="index.html">الرئيسية</a></li>
                             <li>المدونة</li>
+                            <li><a href="index.html">الرئيسية</a></li>
                         </ul>
             </Breadcrumbs>
             

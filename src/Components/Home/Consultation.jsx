@@ -1,40 +1,23 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { BiCalendar } from "react-icons/bi";
 import { RxEnvelopeClosed } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 const Consultation = ({ data }) => {
 	const navigate = useNavigate()
-  const [info,setInfo] = useState() 
-  const [success, setSuccess] = useState()
-  console.log(success)
   const { section7_subtitle, section7_title } = data[10].value;
   const email = data[6].value;
   const phon = data[7].value;
-  console.log(info,'info')
-  const emailHandler = (e) => {
-	setInfo(prev=>{
-		return {...info, email:e.target.value}
-	})
-  }
-  const nameHandler = (e) => {
-	setInfo(prev=>{
-		return {...info, name:e.target.value}
-	})
-  }
-  const messageHandler = (e) => {
-	setInfo(prev=>{
-		return {...info, description:e.target.value}
-	})
-  }
-  const submit = async (e) =>{
-	e.preventDefault()
-	const respo = await axios.post('https://content-sa.com/api/v1/home/store-contact-us',info,{headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
-	setSuccess(respo)
+  const { register, handleSubmit,  formState } = useForm();
+  const onSubmit = async data => { 
+    try {
+      await axios.post('https://content-sa.com/api/v1/home/store-contact-us',data,{headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
+      navigate('/success')
+    } catch (error) {
+
+    }
+
 }
-  if(success?.status === 200){
-	navigate('/success')
-  }
   return (
     <div className="contact-area section">
       <div className="container">
@@ -88,7 +71,7 @@ const Consultation = ({ data }) => {
                 </div>
                 <form
                   className="contacts-form"
-				  onSubmit={submit}
+                  onSubmit={handleSubmit(onSubmit)}
                 >
                   <div className="row">
                     <div className="col-lg-6 col-12">
@@ -96,19 +79,27 @@ const Consultation = ({ data }) => {
                         <input
                           type="text"
                           placeholder="الاسم"
-                          required="required"
-						  onChange={nameHandler}	
+                          // required="required"
+                          {...register("name", { required: 'name is required' })}
 						/>
+                      {formState.errors.name?.message &&<span style={{color:'red', marginTop:'-2rem'}}>{formState.errors.name?.message}</span>}
                       </div>
                     </div>
                     <div className="col-lg-6 col-12">
                       <div className="contacts-icon contactss-email">
                         <input
-                          type="email"
+                          type="text"
                           placeholder="البريد الالكتروني"
-                          required="required"
-						  onChange={emailHandler}
+                          // required
+                          {...register('email', {
+                            required: 'Email is required',
+                            pattern: {
+                                value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                                message: 'Please enter a valid email',
+                            },
+                        })}
                         />
+                        {formState.errors.email?.message &&<span style={{color:'red', marginTop:'-2rem'}}>{formState.errors.email?.message}</span>}
                       </div>
                     </div>
                     <div className="col-12">
@@ -117,8 +108,9 @@ const Consultation = ({ data }) => {
                           name="message"
                           rows="7"
                           placeholder="الرسائل"
-						  onChange={messageHandler}
+                          {...register("description", { required: 'message is required' })}
                         ></textarea>
+                            {formState.errors.description?.message &&<span style={{color:'red', marginTop:'-2rem'}}>{formState.errors.description?.message}</span>}
                       </div>
                     </div>
                     <div className="col-12">

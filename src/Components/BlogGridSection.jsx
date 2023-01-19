@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import BlogCard from "./BlogCard";
 import Loading from "./Global/Loading";
 import axios from "axios";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
+import { Pagination } from "@mui/material";
 
 const BlogGridSection = () => {
+  const [page, setPage] = useState(1)
   const { isLoading, error, data } = useQuery('BlogData', async ()  => {
-    const response = await axios.get('https://content-sa.com/api/v1/blog/index')
-    return response.data.data
+    const response = await axios.get(`https://content-sa.com/api/v1/blog/index?page=${page}`)
+    return response.data
 })
+const handleChange = (event, value) => {
+  setPage(value);
+  };
   if(isLoading) return <Loading />
+  console.log(data)
   return (
     <div className="latest-news-area extra-page section">
       <div className="letast-news-grid">
@@ -19,7 +25,7 @@ const BlogGridSection = () => {
             <div className="col-lg-12">
               <div className="latest-news">
                 <div className="row">
-                  {data.map(e=>
+                  {data.data.map(e=>
 
                     
                 <BlogCard 
@@ -33,30 +39,8 @@ const BlogGridSection = () => {
                 <div className="row">
                   <div className="col-12">
                     <div className="pagination center justify-content-lg-center">
-                      <ul className="pagination-list">
-                        <li>
-                          <a href="#">
-                            <i className="icofont-long-arrow-left"></i>
-                          </a>
-                        </li>
-                        <li className="active">
-                          <a href="#">1</a>
-                        </li>
-                        <li>
-                          <a href="#">2</a>
-                        </li>
-                        <li>
-                          <a href="#">3</a>
-                        </li>
-                        <li>
-                          <a href="#">4</a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i className="icofont-long-arrow-right"></i>
-                          </a>
-                        </li>
-                      </ul>
+                    <Pagination  count={data.pagination.total_pages} page={page} onChange={handleChange} />
+
                     </div>
                   </div>
                 </div>
