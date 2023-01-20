@@ -61,9 +61,7 @@ const Video = ({data}) => {
               </p>
             </div>
           </div>
-          <div onClick={() => {
-                  window.open(section2_link);
-                }}   className="col-lg-6 col-md-6 col-12">
+          <div className=" col-lg-6 col-md-6 col-12">
             <div className="watch-inner">
               <div className="video-head wow zoomIn" data-wow-delay="0.4s">
                 <a
@@ -73,7 +71,7 @@ const Video = ({data}) => {
                   href={section2_link}
                   className="video video-popup mfp-iframe"
                 >
-                  <BsFillPlayFill/>
+                  <BsFillPlayFill />
                 </a>
               </div>
             </div>

@@ -684,7 +684,7 @@ Version: 1.0
 	position:relative;
 	overflow:hidden;
 	padding:100px 0 300px 0;
-	z-index: -1;
+	z-index: 1;
 	background: #181E4E;
 }
 .watch-video.overlay::before {
@@ -692,7 +692,7 @@ Version: 1.0
 	opacity: 0.1;
 }
 .watch-video .watch-inner {
-	display: inline-block;
+	/* display: inline-block; */
 	text-align: center;
 	display: block;
 	margin-top: 50px;
