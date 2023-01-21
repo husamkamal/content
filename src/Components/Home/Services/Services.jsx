@@ -10,7 +10,7 @@ const Services = ({data}) => {
       gsap.fromTo(
         '.section-title',
         {
-          z: -800,
+          z: -400,
           scale: 0.5,
         },
         {

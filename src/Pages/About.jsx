@@ -21,10 +21,10 @@ const About = () => {
     return (
         <div>
             <Breadcrumbs>
-            <h1 className="page-title">من نحن</h1>
+            <h1 className="page-title">عن الشركة</h1>
                         <ul className="custom-flex breadcrumb">
                             <li ><Link to="/">الرئيسية </Link></li>
-                            <li>من نحن</li>
+                            <li>عن الشركة </li>
                         </ul>
             </Breadcrumbs>
             <section className="section blog-single">
@@ -36,10 +36,8 @@ const About = () => {
                 <Link href="#">{data.name}
                 </Link>
               </h2>
-              
-              <p>
-                {data.description}
-              </p>
+              <p dangerouslySetInnerHTML={{ __html:  data.description }} style={{fontFamily:'cairo !important'}}  />
+
               
             </div>
           </div>

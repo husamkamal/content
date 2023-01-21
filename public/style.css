@@ -47,7 +47,7 @@ Version: 1.0
 *{
 	direction: rtl;
 	text-decoration: none !important;
-	font-family: 'Cairo', sans-serif;
+	font-family: 'Cairo', sans-serif !important;
 }
 .swiper-wrapper{
 	justify-content: center;
@@ -684,18 +684,19 @@ Version: 1.0
 	04. Watch Video CSS
 ========================================*/  
 .watch-video{
-	/* background-image:url('https://via.placeholder.com/1200x800'); */
+	background-image:url('https://wpthemesgrid.com/themes/bizhub/images/video-bg.png');
 	background-size:cover;
 	background-position:center;
 	position:relative;
 	overflow:hidden;
 	padding:100px 0 300px 0;
-	/* z-index: 1; */
-	background: #181E4E;
+	z-index: 0;
+	/* opacity: .7; */
+	/* background: #181E4E; */
 }
 .watch-video.overlay::before {
 	background: #181E4E;
-	opacity: 0.1;
+	opacity: 0.9;
 }
 .watch-video .watch-inner {
 	/* display: inline-block; */

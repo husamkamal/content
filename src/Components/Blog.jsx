@@ -34,7 +34,7 @@ const Blog = () => {
                   </Link>
                 </li>
               </ul>
-              <p dangerouslySetInnerHTML={{ __html:  data.description }} />
+              <p dangerouslySetInnerHTML={{ __html:  data.description }} style={{fontFamily:'cairo !important'}}  />
                           </div>
           </div>
         </div>

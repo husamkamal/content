@@ -72,7 +72,7 @@ const Consultation = ({ data }) => {
                 </div>
                 <div className="single-info">
                   <div className="contact-address-icon">
-                    <i className="icofont-calendar">
+                    <i >
                       <BiCalendar />
                     </i>
                   </div>
@@ -83,7 +83,7 @@ const Consultation = ({ data }) => {
                 </div>
                 <div className="single-info">
                   <div className="contact-address-icon">
-                    <i className="icofont-envelope">
+                    <i >
                       <RxEnvelopeClosed />
                     </i>
                   </div>
@@ -110,7 +110,7 @@ const Consultation = ({ data }) => {
                           type="text"
                           placeholder="الاسم"
                           // required="required"
-                          {...register("name", { required: 'name is required' })}
+                          {...register("name", { required: 'هذا الجقل مطلوب' })}
 						/>
                       {formState.errors.name?.message &&<span style={{color:'red', marginTop:'-2rem'}}>{formState.errors.name?.message}</span>}
                       </div>
@@ -122,10 +122,10 @@ const Consultation = ({ data }) => {
                           placeholder="البريد الالكتروني"
                           // required
                           {...register('email', {
-                            required: 'Email is required',
+                            required: 'هذا الجقل مطلوب',
                             pattern: {
                                 value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                                message: 'Please enter a valid email',
+                                message: 'ادخل ايميل صالح ',
                             },
                         })}
                         />
@@ -138,7 +138,7 @@ const Consultation = ({ data }) => {
                           name="message"
                           rows="7"
                           placeholder="الرسائل"
-                          {...register("description", { required: 'message is required' })}
+                          {...register("description", { required: 'هذا الجقل مطلوب' })}
                         ></textarea>
                             {formState.errors.description?.message &&<span style={{color:'red', marginTop:'-2rem'}}>{formState.errors.description?.message}</span>}
                       </div>

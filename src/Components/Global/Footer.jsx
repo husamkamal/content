@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Image from '../../Assets';
 import axios from 'axios';
-import FaFacebookF from 'react-icons/fa'
+import {FaFacebookF , FaSnapchatGhost } from 'react-icons/fa'
 import { toast } from 'react-toastify';
+import { AiOutlineTwitter } from 'react-icons/ai';
 
 const Footer = ({data}) => {
+	const [button , setButton] = useState({disable:false, title:'اشترك الأن'})
 	const [userEmail,setUserEmail] = useState()
 	const email = data[6].value
 	const phon = data[7].value
@@ -24,12 +26,17 @@ const Footer = ({data}) => {
 		try {
 		 await axios.post('https://content-sa.com/api/v1/subscribe/store',{email:userEmail},{headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
 		toast('تم الاشتراك بنجاح')
+		setButton({disable:true, title:'تم الاشتراك بنجاح '})
+		setTimeout(()=>{
+			setButton({disable:false, title:'اشترك الان'})
+
+		}, 3000)
 		} catch (error) {
 			console.log(error)
 		}
 	}
-	console.log(userEmail)
-	// const [ <FaFacebookF /> , ]
+	console.log(social)
+	const icons =  [  {name:"twitter",icon:<FaFacebookF />}, {name:"facebook",icon:<AiOutlineTwitter />}, {name: "snapchat", icon:<FaSnapchatGhost /> } ]
     return (
 		<footer className="footer">
 		<div className="contact-details">
@@ -48,8 +55,14 @@ const Footer = ({data}) => {
 					<div className="col-lg-4 col-md-4 col-12">
 						<ul className="social">
 							{
-								socialMedia.map(e=>
-									<li key={e.key} className="active"><Link to={e.link}><i className='icofont-facebook'></i></Link></li>)
+								socialMedia.map(e=>{
+									const filter = icons.filter((a)=>{
+										return a.name === e.key
+									})
+									console.log(filter, 'filetr')
+									return <li key={e.key} style={{marginLeft:'.5rem'}} className="active"><a href={e.link} target='_blank' >{filter[0]?.icon}</a></li>
+								}
+									)
 							}
 						</ul>
 					</div>
@@ -103,7 +116,7 @@ const Footer = ({data}) => {
 								<div className="news-letter-form">
 									<form onSubmit={onSubmit}  className="newsletter-inner">
 										<input onChange={emailHandler} name="email" placeholder="البريد الالكتروني" required="" type="email" />
-										<button type='submit' onClick={onSubmit} className="btnn">إشترك الآن</button>
+										<button type='submit' disabled={button.disable} onClick={onSubmit} className="btnn">{button.title}</button>
 									</form>
 								</div>
 							</div>
