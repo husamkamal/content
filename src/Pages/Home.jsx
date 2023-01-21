@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeroSection from '../Components/Home/HeroSection';
 import AboutSection from '../Components/Home/About/AboutSection';
 import Video from '../Components/Home/Video';
@@ -16,6 +16,10 @@ import axios from 'axios';
 import Loading from '../Components/Global/Loading';
 
 const Home = () => {
+useEffect(()=>{
+    window.scrollTo(0,0)
+
+},[])
     const { isLoading, error, data } = useQuery('homeData', async ()  => {
     const response = await axios.get('https://content-sa.com/api/v1/home/index')
     return response.data.data
@@ -26,6 +30,7 @@ const Home = () => {
 //       return result?.value;
 //     };
     if(error) return 'there is error'
+    console.log(data)
     return (
         <div>
             <HeroSection data={data}  />

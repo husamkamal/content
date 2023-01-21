@@ -370,12 +370,14 @@ Version: 1.0
 	top:0;
 	height:100%;
 	width:100%;
-	background:#2C3075;
-	opacity:0.1;
+	background: linear-gradient(to right , #2C3075, #00907c ) !important;
+	opacity:0.9;
 }
 .hero-slider .hero-text {
+	position: relative;
 	float: none;
 	margin-top:250px;
+	z-index: 1;
 }
 .hero-slider .hero-text h1 {
 	color: #fff;
@@ -448,12 +450,16 @@ Version: 1.0
 .hero-slider .owl-carousel .owl-nav .owl-next{
 	right:20px;
 }
+.hero-slider  .hero-image{
+	position: relative;
+
+}
 /* Slider Animation */
 .hero-slider .owl-item.active .hero-image img{
 	animation: fadeInDown 1s both 0.6s;
 }
 .hero-slider .owl-item.active .hero-text h1{
-    animation: fadeInUp 1s both 0.6s;
+	animation: fadeInUp 1s both 0.6s;
 }
 .hero-slider .owl-item.active .hero-text p{
     animation: fadeInUp 1s both 1s;
@@ -462,7 +468,7 @@ Version: 1.0
     animation: fadeInUp 1s both 1.5s;
 }
 .hero-slider .owl-item.active .hero-text h4{
-    animation: fadeInUp 1s both 0.8s;
+	animation: fadeInUp 1s both 0.8s;
 }
 .hero-slider .owl-item.active .hero-text .button3{
     animation: fadeInUp 1s both 1.5s;
@@ -684,7 +690,7 @@ Version: 1.0
 	position:relative;
 	overflow:hidden;
 	padding:100px 0 300px 0;
-	z-index: 1;
+	/* z-index: 1; */
 	background: #181E4E;
 }
 .watch-video.overlay::before {

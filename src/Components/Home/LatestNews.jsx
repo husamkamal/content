@@ -48,7 +48,7 @@ const LatestNews = ({data}) => {
 
     return () => heroAnimation.revert();
   }, []);
-    const {value} = data[11]
+    const {value} = data[13]
     const { section9_subtitle, section9_title } = data[10].value;
 
   return (
@@ -72,6 +72,7 @@ const LatestNews = ({data}) => {
             <div className="col-lg-12">
               <div className="latest-news">
                 <div className="row">
+                  {console.log(value[1])}
                     {value.map(e=>
                   <BlogCard key={e.id} src={e.image} title={e.name}/>
                     )}

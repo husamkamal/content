@@ -64,15 +64,15 @@ const Video = ({data}) => {
           <div className=" col-lg-6 col-md-6 col-12">
             <div className="watch-inner">
               <div className="video-head wow zoomIn" data-wow-delay="0.4s">
-                <a
+                <Link
                 onClick={() => {
                   window.open(section2_link);
                 }} 
-                  href={section2_link}
+                  // href={section2_link}
                   className="video video-popup mfp-iframe"
                 >
                   <BsFillPlayFill />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

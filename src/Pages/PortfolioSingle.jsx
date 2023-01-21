@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Breadcrumbs from '../Components/Global/Breadcrumbs';
 import { Link } from 'react-router-dom';
 
 const PortfolioSingle = () => {
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    
+    },[])
     return (
         <div>
             <Breadcrumbs>

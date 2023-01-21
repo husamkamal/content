@@ -34,10 +34,7 @@ const Blog = () => {
                   </Link>
                 </li>
               </ul>
-              <p>
-                {data.description}
-              </p>
-              
+              <p dangerouslySetInnerHTML={{ __html:  data.description }} />
                           </div>
           </div>
         </div>

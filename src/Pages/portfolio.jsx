@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Breadcrumbs from '../Components/Global/Breadcrumbs';
 import { Link } from 'react-router-dom';
 import PortfolioSlider from '../Components/Home/Portfolio/PortfolioSlider';
@@ -9,6 +9,10 @@ import { Pagination } from '@mui/material';
 
 const Portfolio = () => {
 	const [page, setPage] = useState(1)
+	useEffect(()=>{
+		window.scrollTo(0,0)
+	
+	},[])
 	const { isLoading, error, data } = useQuery('PortfolioData', async ()  => {
 		const response = await axios.get(`https://content-sa.com/api/v1/works/index?${page}`)
 		return response.data
@@ -16,6 +20,7 @@ const Portfolio = () => {
 	const handleChange = (event, value) => {
 		setPage(value);
 	  };
+	  
 	if(isLoading) return <Loading />
     return (
         <div>

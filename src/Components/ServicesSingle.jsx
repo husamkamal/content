@@ -17,7 +17,6 @@ const ServicesSingle = () => {
             <div className="row">
                 <div className="col-lg-12 col-md-12 col-12">
                     <div className="service-details">
-                        <p>{data.about}</p>
                         <div className="service-single-img">
                             <img src={`${data.image}`} alt="#" />
                         </div>

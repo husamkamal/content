@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Breadcrumbs from "../Components/Global/Breadcrumbs";
 import Blog from "../Components/Blog";
 import { Link } from "react-router-dom";
 
 const BlogSingle = () => {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+
+},[])
   return (
     <div>
       <Breadcrumbs>

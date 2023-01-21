@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Breadcrumbs from '../Components/Global/Breadcrumbs';
 import Consultation from '../Components/Home/Consultation';
 
 const Contanct = () => {
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    
+    },[])
     return (
         <div>
             <Breadcrumbs>

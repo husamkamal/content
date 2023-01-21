@@ -13,7 +13,7 @@ const BlogCard = ({src,title, link}) => {
         <div className="service-image">
           <img src={src} alt="src" />
         </div>
-        <h4 className="title ">
+        <h4 style={{marginTop:'1rem'}} className="title ">
           <span className='font-w-900'>{title}</span>
         </h4>
         

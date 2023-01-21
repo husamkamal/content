@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Breadcrumbs from '../Components/Global/Breadcrumbs';
 import AboutSection from '../Components/Home/About/AboutSection';
 import WhyChoose from '../Components/Home/WhyChoose/WhyChoose';
@@ -9,7 +9,10 @@ import Loading from '../Components/Global/Loading';
 import { Link } from 'react-router-dom';
 
 const About = () => {
-    
+  useEffect(()=>{
+    window.scrollTo(0,0)
+
+},[])
     const { isLoading, error, data } = useQuery('homeData', async ()  => {
         const response = await axios.get('https://content-sa.com/api/v1/pages/about')
         return response.data.data

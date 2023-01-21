@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Image from '../../Assets';
 import axios from 'axios';
+import FaFacebookF from 'react-icons/fa'
+import { toast } from 'react-toastify';
 
 const Footer = ({data}) => {
 	const [userEmail,setUserEmail] = useState()
@@ -17,13 +19,19 @@ const Footer = ({data}) => {
 	const socialMedia = social.filter(e=>{
 		return e.link !== '#'
 	})
-	const onSubmit = (e) =>{
+	const onSubmit = async (e) =>{
 		e.preventDefault()
-	axios.post('https://content-sa.com/api/v1//subscribe/store',{email:userEmail})
-	setUserEmail('')
+		try {
+		 await axios.post('https://content-sa.com/api/v1/subscribe/store',{email:userEmail},{headers: { 'Content-Type': 'application/x-www-form-urlencoded' }})
+		toast('تم الاشتراك بنجاح')
+		} catch (error) {
+			console.log(error)
+		}
 	}
+	console.log(userEmail)
+	// const [ <FaFacebookF /> , ]
     return (
-        <footer className="footer">
+		<footer className="footer">
 		<div className="contact-details">
 			<div className="container">
 				<div className="row">
@@ -65,10 +73,11 @@ const Footer = ({data}) => {
 						<div className="single-footer f-link">
 							<h3>الذي نفعله</h3>
 							<ul>
+								{console.log(services, 111)}
 								{
 									services.map(e=>
 										
-										<li key={e.id}><Link href="#">{e.name}</Link></li>
+										<li key={e.id}><Link to="/">{e.name}</Link></li>
 										)
 								}
 							</ul>
