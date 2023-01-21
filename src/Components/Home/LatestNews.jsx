@@ -73,8 +73,10 @@ const LatestNews = ({data}) => {
               <div className="latest-news">
                 <div className="row">
                   {console.log(value[1])}
-                    {value.map(e=>
-                  <BlogCard key={e.id} src={e.image} title={e.name}/>
+                    {value.map(e=>{
+                      const name =  e.name.replace(/\s+/g, '-')
+                      return <BlogCard key={e.id} src={e.image} link={`/blog-single/${name}/${e.id}`} title={e.name}/>
+                    }
                     )}
                 </div>
               </div>

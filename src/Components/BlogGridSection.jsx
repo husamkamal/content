@@ -24,16 +24,19 @@ const handleChange = (event, value) => {
             <div className="col-lg-12">
               <div className="latest-news">
                 <div className="row">
-                  {data.data.map(e=>
+                  {data.data.map(e=>{
+                   const name =  e.name.replace(/\s+/g, '-')
+                  return   <BlogCard 
+                    key={e.id}
+                    title={e.name}
+                    src={e.image}
+                    link={`/blog-single/${name}/${e.id}`}
+                    />
+                    
+                  }
+                  )}
 
                     
-                <BlogCard 
-                key={e.id}
-                title={e.name}
-                src={e.image}
-                link={`/blog-single/${e.name}/${e.id}`}
-                />
-                    )}
                   
                 <div className="row">
                   <div className="col-12">
