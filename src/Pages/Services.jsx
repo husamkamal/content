@@ -10,7 +10,10 @@ import { Link } from 'react-router-dom';
 const Services = () => {
 	const [page, setPage] = useState(1)
 	const { isLoading,  data } = useQuery('ServicesData', async ()  => {
-		const response = await axios.get(`https://content-sa.com/api/v1/services/index?page=${page}`)
+		const response = await axios.get(`https://content-sa.com/api/v1/services/index?page=${page}`,{headers: {
+			"Cache-Control": null,
+			"X-Requested-With": null,
+		}})
 		return response.data
 	})
 	useEffect(()=>{

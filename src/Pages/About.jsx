@@ -14,7 +14,10 @@ const About = () => {
 
 },[])
     const { isLoading, error, data } = useQuery('homeData', async ()  => {
-        const response = await axios.get('https://content-sa.com/api/v1/pages/about')
+        const response = await axios.get('https://content-sa.com/api/v1/pages/about',{headers: {
+          "Cache-Control": null,
+          "X-Requested-With": null,
+      }})
         return response.data.data
     })
       if(isLoading) return <Loading />

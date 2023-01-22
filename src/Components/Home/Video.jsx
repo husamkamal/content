@@ -86,12 +86,7 @@ const Video = ({ data }) => {
                 {
                   open && 
                   <ReactPlayer
-                  style={{
-                    position: "relative",
-                    top: "-105px",
-                    zIndex: 10,
-                    left: "20rem",
-                  }}
+                  className="videoPlayer"
                   url={`${section2_link}`}
                   />
                 }

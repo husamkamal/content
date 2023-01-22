@@ -9,7 +9,10 @@ import axios from 'axios';
 import { useQuery } from 'react-query';
 const Root = () => {
     const { isLoading, error, data } = useQuery('FooterNav', async ()  => {
-        const response = await axios.get('https://content-sa.com/api/v1/home/index')
+        const response = await axios.get('https://content-sa.com/api/v1/home/index',{headers: {
+            "Cache-Control": null,
+            "X-Requested-With": null,
+        }})
         return response.data.data
     })
       if(isLoading) return <Loading />

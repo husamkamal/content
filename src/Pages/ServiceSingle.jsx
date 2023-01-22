@@ -9,14 +9,15 @@ const ServiceSingle = () => {
     
     },[])
     const {name} = useParams()
+    const serviceName = name.replace('-',' ')
     return (
         <div>
             <Breadcrumbs>
-            <h1 className="page-title">{name}</h1>
+            <h1 className="page-title">{serviceName}</h1>
                         <ul className="custom-flex breadcrumb">
                             <li><Link href="index.html">الرئيسية</Link></li>
                             <li><Link href="news-standard.html">الخدمات </Link></li>
-                            <li>{name}</li>
+                            <li>{serviceName}</li>
                         </ul>
             </Breadcrumbs>
            <ServicesSingle />

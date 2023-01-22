@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PortfolioSlider from "./PortfolioSlider";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
@@ -12,6 +12,11 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 const Portfolio = ({data}) => {
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
   const portfolioRef = useRef(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -74,17 +79,18 @@ const Portfolio = ({data}) => {
         <div className="row">
           <div className="col-12">
             <div className="portfolio-slider">
-              <Swiper
+            <Swiper
                 // install Swiper modules
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
-                spaceBetween={50}
-                slidesPerView={2}
+                spaceBetween={window.innerWidth < 600 ? 0 :  50}
+                slidesPerView={window.innerWidth < 600 ? 1 :  2}
                 navigation
                 loop={true}
+                className="swiper-operant"
               >
                 {value.map(e=>
 
-                <SwiperSlide key={e.id}>
+                <SwiperSlide className="swiper-slide-single" key={e.id}>
                   {" "}
                   <PortfolioSlider src={e.image} />
                 </SwiperSlide>

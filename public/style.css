@@ -38,8 +38,7 @@ Version: 1.0
 17. Mail Success CSS
 18. Footer CSS
 ========================================*/
- body{
-}
+
 /*======================================
 01. Header CSS
 ========================================*/
@@ -683,6 +682,12 @@ Version: 1.0
 /*======================================
 	04. Watch Video CSS
 ========================================*/  
+.videoPlayer{
+		position: relative;
+		top: -105px;
+		z-index: 10;
+		left: 20rem;
+}
 .watch-video{
 	background-image:url('https://wpthemesgrid.com/themes/bizhub/images/video-bg.png');
 	background-size:cover;
@@ -821,7 +826,7 @@ Version: 1.0
 	position: absolute;
 	content: "";
 	left: 50%;
-	top: -100px;
+	top: 20px;
 	height: 385px;
 	width: 1300px;
 	margin-left: -650px;
@@ -1059,7 +1064,7 @@ End Services CSS
 .portfolio .single-portfolio{
 	position:relative;
 	margin-top:30px;
-	width: 45%;
+	width: 45%; /*width: 93%;*/
 	/* height: 100%; */
 }
 .portfolio .single-portfolio img{
@@ -1067,7 +1072,6 @@ End Services CSS
 	width: 35rem;
 	max-height: 40rem;
 	height: 30rem;
-	background-color: red;
 }
 .portfolio .single-portfolio .content {
 	display: block;
@@ -2967,6 +2971,7 @@ blockquote:before {
 .footer .contact-details .single-info{
 	display: flex;
 	flex-direction: row-reverse !important;
+	justify-content: center;
 }
 .footer .contact-details .single-info p {
 	color: #fff;

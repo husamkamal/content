@@ -75,13 +75,14 @@ const Testimonials = ({ data }) => {
             <div className="testimonial-slider">
               <Swiper
                 modules={[Pagination, A11y]}
-                spaceBetween={50}
-                slidesPerView={3}
+                // spaceBetween={10}
+                slidesPerView={window.innerWidth < 600 ? 1 : 3}
+                loop={true}
                 pagination={{ clickable: true }}
               >
                 {
                     value.map(e=>
-                <SwiperSlide key={e.id}>
+                <SwiperSlide className="swiper-slide-single" key={e.id}>
                   {" "}
                   <TestimonialsCard
                     title={e.caption}

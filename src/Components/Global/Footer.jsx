@@ -76,7 +76,7 @@ const Footer = ({data}) => {
 					<div className="col-lg-4 col-md-6 col-12">
 						<div className="single-footer f-about">
 							<div className="logo">
-								<Link href="index.html"><img src={logo} alt="#" /></Link>
+								<Link to='/'><img src={logo} alt="#" /></Link>
 							</div>
 							<p>{description}</p>
 							
@@ -86,11 +86,12 @@ const Footer = ({data}) => {
 						<div className="single-footer f-link">
 							<h3>الذي نفعله</h3>
 							<ul>
-								{console.log(services, 111)}
 								{
-									services.map(e=>
+									services.map(e=>{
+										const serviceName = e.name.replaceAll(' ','-')
+										return <li key={e.id}><Link to={`/service-single/${serviceName}/${e.id}`}>{e.name}</Link></li>
+									}
 										
-										<li key={e.id}><Link to="/">{e.name}</Link></li>
 										)
 								}
 							</ul>

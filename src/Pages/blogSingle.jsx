@@ -9,11 +9,13 @@ const BlogSingle = () => {
 
 },[])
 const {name} = useParams()
+const blogName = name.replaceAll('-',' ')
+console.log(blogName)
   return (
     <div>
       <Breadcrumbs>
         {" "}
-        <h1 className="page-title">{name}</h1>
+        <h1 className="page-title">{blogName}</h1>
         <ul className="custom-flex breadcrumb">
           <li>
             <Link to="/">الرئيسية</Link>
@@ -21,7 +23,7 @@ const {name} = useParams()
           <li>
             <Link to="/">المدونة</Link>
           </li>
-          <li>{name}</li>
+          <li>{blogName}</li>
         </ul>
       </Breadcrumbs>
       

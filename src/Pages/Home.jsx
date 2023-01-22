@@ -23,7 +23,10 @@ const Home = () => {
 
         try {
           const response = await axios.get(
-            "https://content-sa.com/api/v1/home/index"
+            "https://content-sa.com/api/v1/home/index",{headers: {
+              "Cache-Control": null,
+              "X-Requested-With": null,
+          }}
           );
           setData(response.data.data);
         } catch (error) {}

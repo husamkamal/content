@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TemporaryDrawer from "./MobileNav";
 import { Drawer } from "@mui/material";
-
+import {GiHamburgerMenu} from 'react-icons/gi'
 const NavBar = ({ data }) => {
   const [open, setOpen] = useState(false);
   const logo = data[0].value;
@@ -22,7 +22,7 @@ const NavBar = ({ data }) => {
     }
   };
   const handleOpen = () => {
-    setOpen(true);
+    setOpen(!open);
   };
 
   const handleClose = () => {
@@ -36,8 +36,8 @@ const NavBar = ({ data }) => {
       <div className="header-inner">
         <div className="container">
           <div className="container-inner">
-            <div className="row">
-              <div className="col-lg-2 col-md-2 col-12">
+            <div className="row menu-responsive">
+              <div className="col-lg-2 col-md-2 col-4">
                 <div className="logo">
                   <Link to="/">
                     <img src={logo} alt="logo" />
@@ -49,9 +49,10 @@ const NavBar = ({ data }) => {
                 <div className="mobile-nav"></div>
               </div>
 
-              <div className="col-lg-10 col-md-10 col-12">
-                {/* <button onClick={handleOpen}>open</button> */}
+              <div className="col-lg-10 col-md-10 col-2">
                 {window.innerWidth < 600 ? (
+                  <>
+                  <GiHamburgerMenu style={{color:'#fff'}} onClick={handleOpen} />
                   <Drawer
                     style={{ marginTop:'10rem !important' }}
                     anchor={"top"}
@@ -84,6 +85,7 @@ const NavBar = ({ data }) => {
                       </nav>
                     </div>
                   </Drawer>
+                  </>
                 ) : (
                   <div className="menu-area">
                     <nav className="navbar navbar-expand-lg">

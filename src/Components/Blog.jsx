@@ -3,11 +3,15 @@ import { Link, useParams } from "react-router-dom";
 import Loading from "./Global/Loading";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { AiFillCalendar } from "react-icons/ai";
 
 const Blog = () => {
   const {id} = useParams()
     const { isLoading, error, data } = useQuery('SingleBlogData', async ()  => {
-        const response = await axios.get(`https://content-sa.com/api/v1/blog/${id}/show`)
+        const response = await axios.get(`https://content-sa.com/api/v1/blog/${id}/show`,{headers: {
+          "Cache-Control": null,
+          "X-Requested-With": null,
+      }})
         return response.data.data
     })
       if(isLoading) return <Loading />
@@ -23,15 +27,15 @@ const Blog = () => {
                 </Link>
               </div>
               <h2 className="post-title">
-                <Link href="#">{data.name}
+                <Link >{data.name}
                 </Link>
               </h2>
               <ul className="custom-flex post-meta">
-                <li>
-                  <Link href="#">
-                    <i className="icofont-calendar"></i>
-                    {data.created_at}
-                  </Link>
+                <li style={{display:'flex', alignItems:'center', flexDirection:'row'}}>
+                  {/* <Link > */}
+                    
+                     <AiFillCalendar className="m-1 "  />{data.created_at}
+                  {/* </Link> */}
                 </li>
               </ul>
               <p dangerouslySetInnerHTML={{ __html:  data.description }} style={{fontFamily:'cairo !important'}}  />

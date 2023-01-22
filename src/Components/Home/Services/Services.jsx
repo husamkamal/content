@@ -17,7 +17,7 @@ const Services = ({data}) => {
           z: 0,
           scale: 1,
           ease: 'power2',
-          duration: 0.8,
+          duration: 0.4,
           scrollTrigger: {
             trigger: servicesRef.current,
             start: 'left center',
@@ -33,8 +33,8 @@ const Services = ({data}) => {
         {
           y: 0,
           ease: 'power2',
-          delay: 0.5,
-          duration: 0.8,
+          delay: 0.1,
+          duration: 0.4,
           scrollTrigger: {
             trigger: servicesRef.current,
             start: 'top center',

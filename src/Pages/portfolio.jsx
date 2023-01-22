@@ -14,7 +14,10 @@ const Portfolio = () => {
 	
 	},[])
 	const { isLoading, error, data } = useQuery('PortfolioData', async ()  => {
-		const response = await axios.get(`https://content-sa.com/api/v1/works/index?${page}`)
+		const response = await axios.get(`https://content-sa.com/api/v1/works/index?${page}`,{headers: {
+			"Cache-Control": null,
+			"X-Requested-With": null,
+		}})
 		return response.data
 	})
 	const handleChange = (event, value) => {

@@ -7,7 +7,10 @@ import { useQuery } from 'react-query';
 const ServicesSingle = () => {
     const {id} = useParams()
     const { isLoading, error, data } = useQuery('SingleServicesData', async ()  => {
-        const response = await axios.get(`https://content-sa.com/api/v1/services/${id}/show`)
+        const response = await axios.get(`https://content-sa.com/api/v1/services/${id}/show`,{headers: {
+            "Cache-Control": null,
+            "X-Requested-With": null,
+        }})
         return response.data.data
     })
       if(isLoading) return <Loading />

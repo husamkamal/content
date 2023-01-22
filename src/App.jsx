@@ -3,6 +3,8 @@ import router from "./Router/router";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const queryClient = new QueryClient();
 function App() {

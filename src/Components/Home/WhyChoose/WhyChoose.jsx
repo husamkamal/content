@@ -36,13 +36,11 @@ const WhyChoose = ({ data }) => {
               <div className="accordion" id="accordionExample">
                 {value.map(e=>
                 <CollapseSection
-                key={e.id}
+                  key={e.id}
                   title={e.name}
                   desc={e.description}
                 />
-                    
-                    )}
-                
+                    )}                
               </div>
             </div>
           </div>

@@ -9,7 +9,10 @@ import { Pagination } from "@mui/material";
 const BlogGridSection = () => {
   const [page, setPage] = useState(1)
   const { isLoading, error, data } = useQuery('BlogData', async ()  => {
-    const response = await axios.get(`https://content-sa.com/api/v1/blog/index?page=${page}`)
+    const response = await axios.get(`https://content-sa.com/api/v1/blog/index?page=${page}`,{headers: {
+      "Cache-Control": null,
+      "X-Requested-With": null,
+  }})
     return response.data
 })
 const handleChange = (event, value) => {
