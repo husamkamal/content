@@ -36,7 +36,7 @@ const Footer = ({data}) => {
 		}
 	}
 	console.log(social)
-	const icons =  [  {name:"twitter",icon:<FaFacebookF />}, {name:"facebook",icon:<AiOutlineTwitter />}, {name: "snapchat", icon:<FaSnapchatGhost /> } ]
+	const icons =  [  {name:"facebook",icon:<FaFacebookF />}, {name:"twitter",icon:<AiOutlineTwitter />}, {name: "snapchat", icon:<FaSnapchatGhost /> } ]
     return (
 		<footer className="footer">
 		<div className="contact-details">
