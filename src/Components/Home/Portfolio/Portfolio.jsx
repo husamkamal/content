@@ -3,15 +3,15 @@ import PortfolioSlider from "./PortfolioSlider";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-const Portfolio = ({data}) => {
+const Portfolio = ({ data }) => {
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
@@ -22,7 +22,7 @@ const Portfolio = ({data}) => {
     gsap.registerPlugin(ScrollTrigger);
     const heroAnimation = gsap.context(() => {
       gsap.fromTo(
-        '.section-title',
+        ".section-title",
         {
           z: -800,
           scale: 0.5,
@@ -30,38 +30,38 @@ const Portfolio = ({data}) => {
         {
           z: 0,
           scale: 1,
-          ease: 'power2',
+          ease: "power2",
           duration: 0.8,
           scrollTrigger: {
             trigger: portfolioRef.current,
-            start: 'left center',
-            end: 'right center',
+            start: "left center",
+            end: "right center",
           },
-        },
+        }
       );
       gsap.fromTo(
-        '.portfolio-slider .single-portfolio',
+        ".portfolio-slider .single-portfolio",
         {
           x: 1200,
         },
         {
           x: 0,
-          ease: 'power2',
+          ease: "power2",
           delay: 0.5,
           duration: 0.8,
           scrollTrigger: {
             trigger: portfolioRef.current,
-            start: 'top center',
-            end: 'bottom center',
+            start: "top center",
+            end: "bottom center",
           },
-        },
+        }
       );
     }, portfolioRef);
 
     return () => heroAnimation.revert();
   }, []);
-  const {value} = data[12]
-  const {section4_subtitle,section4_title	} = data[10].value
+  const { value } = data[12];
+  const { section4_subtitle, section4_title } = data[10].value;
   return (
     <section id="portfolio" className="portfolio section" ref={portfolioRef}>
       <div className="container">
@@ -79,23 +79,33 @@ const Portfolio = ({data}) => {
         <div className="row">
           <div className="col-12">
             <div className="portfolio-slider">
-            <Swiper
-                // install Swiper modules
+              <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
-                spaceBetween={window.innerWidth < 600 ? 0 :  50}
-                slidesPerView={window.innerWidth < 600 ? 1 :  2}
+                slidesPerView={1}
+                spaceBetween={10}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                  },
+                  1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                }}
                 navigation
                 loop={true}
-                className="swiper-operant"
               >
-                {value.map(e=>
-
-                <SwiperSlide className="swiper-slide-single" key={e.id}>
-                  {" "}
-                  <PortfolioSlider src={e.image} />
-                </SwiperSlide>
-                )}
-                
+                {value.map((e) => (
+                  <SwiperSlide key={e.id}>
+                    {" "}
+                    <PortfolioSlider src={e.image} />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </div>

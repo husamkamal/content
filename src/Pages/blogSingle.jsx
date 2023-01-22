@@ -10,7 +10,6 @@ const BlogSingle = () => {
 },[])
 const {name} = useParams()
 const blogName = name.replaceAll('-',' ')
-console.log(blogName)
   return (
     <div>
       <Breadcrumbs>

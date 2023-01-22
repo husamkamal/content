@@ -39,7 +39,6 @@ const Home = () => {
   //       const result = data.find((data) => data?.key === key);
   //       return result?.value;
   //     };
-  console.log(data);
   return (
     <div>
       <HeroSection data={data} />

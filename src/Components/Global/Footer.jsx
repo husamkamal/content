@@ -35,7 +35,6 @@ const Footer = ({data}) => {
 			console.log(error)
 		}
 	}
-	console.log(social)
 	const icons =  [  {name:"facebook",icon:<FaFacebookF />}, {name:"twitter",icon:<AiOutlineTwitter />}, {name: "snapchat", icon:<FaSnapchatGhost /> } ]
     return (
 		<footer className="footer">
@@ -59,7 +58,6 @@ const Footer = ({data}) => {
 									const filter = icons.filter((a)=>{
 										return a.name === e.key
 									})
-									console.log(filter, 'filetr')
 									return <li key={e.key} style={{marginLeft:'.5rem'}} className="active"><a href={e.link} target='_blank' >{filter[0]?.icon}</a></li>
 								}
 									)

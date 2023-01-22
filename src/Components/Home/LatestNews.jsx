@@ -72,7 +72,6 @@ const LatestNews = ({data}) => {
             <div className="col-lg-12">
               <div className="latest-news">
                 <div className="row">
-                  {console.log(value[1])}
                     {value.map(e=>{
                       const name =  e.name.replace(/\s+/g, '-')
                       return <BlogCard key={e.id} src={e.image} link={`/blog-single/${name}/${e.id}`} title={e.name}/>

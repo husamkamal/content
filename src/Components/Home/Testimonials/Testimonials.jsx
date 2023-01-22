@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import gsap from 'gsap';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,7 +16,7 @@ const Testimonials = ({ data }) => {
     gsap.registerPlugin(ScrollTrigger);
     const heroAnimation = gsap.context(() => {
       gsap.fromTo(
-        '.section-title',
+        ".section-title",
         {
           z: -800,
           scale: 0.5,
@@ -24,31 +24,31 @@ const Testimonials = ({ data }) => {
         {
           z: 0,
           scale: 1,
-          ease: 'power2',
+          ease: "power2",
           duration: 1,
           scrollTrigger: {
             trigger: testimonialRef.current,
-            start: 'left center',
-            end: 'right center',
+            start: "left center",
+            end: "right center",
           },
-        },
+        }
       );
       gsap.fromTo(
-        '.testimonial-slider',
+        ".testimonial-slider",
         {
           x: 1200,
         },
         {
           x: 0,
-          ease: 'power2',
+          ease: "power2",
           delay: 0.5,
           duration: 1,
           scrollTrigger: {
             trigger: testimonialRef.current,
-            start: 'top center',
-            end: 'bottom center',
+            start: "top center",
+            end: "bottom center",
           },
-        },
+        }
       );
     }, testimonialRef);
 
@@ -74,25 +74,23 @@ const Testimonials = ({ data }) => {
           <div className="col-12">
             <div className="testimonial-slider">
               <Swiper
-                modules={[Pagination, A11y]}
-                // spaceBetween={10}
-                slidesPerView={3}
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={window.innerWidth < 600 ? -20 : 20}
+                slidesPerView={window.innerWidth < 600 ? 1 : 3}
+                navigation
+                pagination
                 loop={true}
-                pagination={{ clickable: true }}
               >
-                {
-                    value.map(e=>
-                <SwiperSlide className="swiper-slide-single" key={e.id}>
-                  {" "}
-                  <TestimonialsCard
-                    title={e.caption}
-                    name={e.client_name}
-                    major={e.client_job_title}
-                  />
-                </SwiperSlide>
-                        
-                        )
-                }
+                {value.map((e) => (
+                  <SwiperSlide className="swiper-slide-single" key={e.id}>
+                    {" "}
+                    <TestimonialsCard
+                      title={e.caption}
+                      name={e.client_name}
+                      major={e.client_job_title}
+                    />
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
           </div>
