@@ -61,15 +61,16 @@ const Services = ({data}) => {
 			</div>
 			<div className="row">
 				{value.map(e=>
-
-			<ServicesCard
-			key={e.id}
-			src={e.image
-			}
-			title={e.name}
-			desc={e.about}
-			link={`/service-single/${e.id}`}
-			/>
+{
+  const name = e.name.replace(/\s+/g, '-')
+return 	<ServicesCard
+  key={e.id}
+  src={e.image}
+  title={e.name}
+  desc={e.about}
+  link={`/service-single/${name}/${e.id}`}
+  />
+}
 				)}
 				
 			</div>
