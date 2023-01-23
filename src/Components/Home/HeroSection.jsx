@@ -4,7 +4,6 @@ const HeroSection = ({ data }) => {
   const { section1_title, section1_subtitle } = data[10].value;
   const src = data[8].value
   const bacground = data[9].value
-  console.log(src)
   return (
     <section className="hero-slider">
       <div style={{backgroundImage:`url(${bacground})`}} className="single-slider">

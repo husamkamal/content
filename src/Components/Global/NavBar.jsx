@@ -30,7 +30,7 @@ const NavBar = ({ data }) => {
   };
   return (
     <header
-      style={{ position: `${sticky}`, top: "0px", zIndex: 100 }}
+      style={{ position: `${sticky}`, top: "0px", zIndex: 10000 }}
       className="header other-page"
     >
       <div className="header-inner">

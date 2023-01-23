@@ -123,6 +123,9 @@ Version: 1.0
 .header .nav li:hover a{
 	color:#fff;
 }
+.navbar-expand-lg{
+	background: linear-gradient(to right , #2C3075, #00907c ) !important;
+}
 .navbar-expand-lg .navbar-collapse{
 	
 }
@@ -1578,6 +1581,10 @@ End Services CSS
 	background: #2C3075;
 }
 .contact-area .single-info{
+	display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    justify-content: space-between;
 	margin-bottom:30px;
 }
 .contact-wrapper {
@@ -1602,10 +1609,13 @@ End Services CSS
 	box-shadow: 0px 0px 10px #0000000a;
 }
 .contact-address-icon {
+	width: 2.5rem;
     margin-right: 30px;
 }
 .contact-address-text {
 	overflow: hidden;
+	text-align: right;
+	width: 17rem;
 }
 .contact-address-text h3 {
 	font-size: 24px;
@@ -3169,6 +3179,6 @@ blockquote:before {
 /*======================================
 	End Footer	CSS
 ========================================*/
-/* .swiper-wrapper{
-	width: 100% !important;
-} */
+.swiper-button-next , .swiper-button-prev{
+	color: #2C3075 !important;
+}
