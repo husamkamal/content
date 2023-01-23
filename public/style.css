@@ -2996,6 +2996,7 @@ blockquote:before {
 }
 .footer .contact-details .social {
 	margin-top: 6px;
+	padding-left: 0 !important;
 }
 .footer .contact-details .social li{
 	display:inline-block;
