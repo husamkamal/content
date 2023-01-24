@@ -123,9 +123,6 @@ Version: 1.0
 .header .nav li:hover a{
 	color:#fff;
 }
-.navbar-expand-lg{
-	background: linear-gradient(to right , #2C3075, #00907c ) !important;
-}
 .navbar-expand-lg .navbar-collapse{
 	
 }

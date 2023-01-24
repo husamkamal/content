@@ -77,8 +77,9 @@ const Testimonials = ({ data }) => {
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={window.innerWidth < 600 ? -20 : 20}
                 slidesPerView={window.innerWidth < 600 ? 1 : 3}
-                navigation
-                pagination
+                
+                navigation={window.innerWidth < 600 ? false : true}
+                pagination = {{ clickable: true}}
                 loop={true}
               >
                 {value.map((e) => (

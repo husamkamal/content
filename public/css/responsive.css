@@ -247,6 +247,7 @@ Version: 1.0
 	.latest-news-area .latest-news {
 		padding-top: 30px;
 	}
+		
 	.latest-news-area .letest-news-item{
 		padding-top: 30px;
 	}
@@ -511,6 +512,10 @@ Version: 1.0
 		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.35);
 		z-index:10000;
 	}
+	.navbar-expand-lg{
+		background: linear-gradient(to right , #2C3075, #00907c ) !important;
+	}
+
 	.header.sticky .logo .img2{
 		z-index:-5;
 		opacity:0;
