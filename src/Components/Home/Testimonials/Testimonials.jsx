@@ -76,9 +76,7 @@ const Testimonials = ({ data }) => {
               <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={window.innerWidth < 600 ? -20 : 20}
-                slidesPerView={window.innerWidth < 600 ? 1 : 3}
-                
-                navigation={window.innerWidth < 600 ? false : true}
+                slidesPerView={window.innerWidth < 600 ? 1 : 3}                
                 pagination = {{ clickable: true}}
                 loop={true}
               >

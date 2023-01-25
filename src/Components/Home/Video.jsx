@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { BsFillPlayFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
+import Iframe from "react-iframe";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 const Video = ({ data }) => {
   const heroRef = useRef(null);
@@ -60,7 +62,11 @@ const Video = ({ data }) => {
       }, true);
     };
   })
+
   const { section2_title, section2_subtitle, section2_link } = data[10].value;
+  console.log(section2_link)
+  const newUrl = section2_link.replace('watch?v=','embed/');
+  console.log(newUrl)
   return (
     <section className="watch-video overlay section" ref={heroRef}>
       <div className="container">
@@ -84,11 +90,18 @@ const Video = ({ data }) => {
                   <BsFillPlayFill />
                 </Link>
                 {
-                  open && 
-                  <ReactPlayer
+                  open &&
+                  <>
+                  <AiFillCloseCircle onClick={() => setOpen(false)} className="close-video" />
+                  <Iframe url={`${newUrl}`}
+                  position="absolute"
                   className="videoPlayer"
-                  url={`${section2_link}`}
-                  />
+                  scrolling='yes' 
+                  frameborder="0"
+                   allowTransparency="true" 
+                  allow="fullscreen"
+                  overflow='hidden'
+                  /></>
                 }
               </div>
             </div>
