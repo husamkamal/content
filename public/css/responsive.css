@@ -587,9 +587,20 @@ Version: 1.0
 	}
 	.videoPlayer{
 		left: 0;
-		width: 20rem !important;
-		height: 15rem !important;
+		width: 22rem !important;
+		height: 18rem !important;
 	}
+	
+.close-video{
+	position: absolute;
+	top: -128px;
+    right: -2px;
+	z-index: 10000;
+	height:2rem;
+	width: 2rem;
+	color: white;
+	cursor: pointer;
+}
 	.watch-video .content h2 {
 		font-size: 30px;
 		margin-bottom: 20px;
