@@ -8,10 +8,10 @@ const NavBar = ({ data }) => {
   const logo = data[0].value;
   const [sticky, setSticky] = useState("static");
   useEffect(() => {
-    window.addEventListener("scroll", stickNavbar);
+    document.addEventListener("click", stickNavbar,true);
 
     return () => {
-      window.removeEventListener("scroll", stickNavbar);
+      document.removeEventListener("click", stickNavbar);
     };
   }, []);
 
